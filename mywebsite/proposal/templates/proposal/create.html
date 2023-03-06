@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Форма заявок {% endblock %}
+
+{% block content %}
+    <div class = "registration-cssave">
+      <form method="post" style="max-width:800px;
+      padding:50px 70px;
+      border-radius:10px;
+      box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+      background-color:#fff;">
+        <h3 class="text-center" style="font-weight:bold;
+        margin-bottom:30px;">Форма составления заявки</h3>
+        {% csrf_token %}
+        {{ form.surname }}<br>
+        {{ form.name }}<br>
+        {{ form.patronymic }}<br>
+        {{ form.phone }}<br>
+        {{ form.date }}<br>
+        <span>{{ error }}</span>
+        <button class="btn btn-success" type="submit">Оставить заявку</button>
+      </form>
+    </div>
+{% endblock %}

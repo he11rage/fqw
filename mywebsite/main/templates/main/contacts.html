@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Контакты {% endblock %}
+
+{% block content %}
+<h1>Контакты</h1>
+<div class="usercontent">
+    <p><strong>Адрес:</strong> г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+    <p><strong>Телефон:</strong><a> +7 (908) 951-26-67</a></p>
+    <p><strong>Режим работы:</strong>с 9:00 до 18:00 (офис), до 21:00 (замер) без выходных</p>
+    <p><strong>E-mail:</strong> info@saturn.ru</p>
+    <p><strong style="font-size: 22px;">Карта проезда</strong></p>
+    <div class="map-row-block">
+<div style="position:relative;overflow:hidden;">
+    <a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a>
+    <a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_8_marta_49/YkkYcAdlSUABQFtsfXRzdX5lZg==/?ll=60.605117%2C56.824538&utm_medium=mapframe&utm_source=maps&z=18.15" style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица 8 Марта, 49 — Яндекс Карты</a>
+    <iframe src="https://yandex.ru/map-widget/v1/-/CCUbMGDKkD" width="760" height="500" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+</div>
+    </div>
+    </div>
+{% endblock %}

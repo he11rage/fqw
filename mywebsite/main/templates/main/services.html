@@ -1,0 +1,63 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Услуги {% endblock %}
+
+{% block content %}
+
+<section class="pricelist-block">
+    <p>Стоимость услуг определяется конкретно для каждого вызова. При этом учитывается уровень квалификации, сложность и
+        объем работ, стоимость материалов. При большом заказе или одновременном выполнении нескольких услуг исполнители
+        в большинстве случаев предоставляют скидки.</p>
+    <h3>Мелкий ремонт</h3>
+    <table class="pricelist-table">
+        <tbody>
+        {% if services %}
+        {% for el in services %}
+        {% if el.category == 'Прочее' %}
+        <tr>
+            <td>{{ el.title }}</td>
+            <td>от {{ el.price }} руб/шт.</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <p>Услуг нет</p>
+        {% endif %}
+        </tbody>
+    </table>
+    <h3>Мелкий ремонт Электрики</h3>
+    <table class="pricelist-table">
+        <tbody>
+        {% if services %}
+        {% for el in services %}
+        {% if el.category == 'Электрика' %}
+        <tr>
+            <td>{{ el.title }}</td>
+            <td>от {{ el.price }} руб/шт.</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <p>Услуг нет</p>
+        {% endif %}
+        </tbody>
+    </table>
+    <h3>Мелкий ремонт Сантехники</h3>
+    <table class="pricelist-table">
+        <tbody>
+        {% if services %}
+        {% for el in services %}
+        {% if el.category == 'Сантехника' %}
+        <tr>
+            <td>{{ el.title }}</td>
+            <td>от {{ el.price }} руб/шт.</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <p>Услуг нет</p>
+        {% endif %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

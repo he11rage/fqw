@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Услуги {% endblock %}
+
+{% block content %}
+<div class="container" style="text-align: -webkit-center;">
+    <div class="props">
+        <h1>Все услуги</h1>
+        {% if services %}
+        {% for el in services %}
+        <div class="alert alert-warning">
+            <h3> {{ el.category }}: {{ el.title }}</h3>
+            <a href="{% url 'services-detail' el.id %}" class="btn btn-light"
+               style="padding: 10px 20px; font-size: 20px; border-radius: 10px;"> Подробнее</a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Услуг нет</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

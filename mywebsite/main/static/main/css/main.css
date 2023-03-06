@@ -1,0 +1,260 @@
+body {
+    background: #ffffff;
+}
+
+aside {
+    float: left;
+    background: #ffffff;
+    width: 16%;
+    padding: 1.5%;
+    height: 110vh;
+    color: #100720;
+    border-right: 5px solid #607EAA;
+}
+
+aside img {
+    width: 45%;
+    float: left;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+aside .logo {
+    font-size: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+}
+
+aside h3 {
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+aside ul {
+  list-style-type: none;
+}
+
+aside ul a {text-decoration: none}
+
+aside ul li {
+    color: #100720;
+    display: block;
+    margin-top: 20px;
+    transition: transform.6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: black;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main .features {
+    float: left;
+    color: #100720;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+}
+
+main .features h1 {
+    font-size: 50px;
+}
+
+main .features p {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.props {
+    width: 50%;
+    text-align:center;
+    color: #100720;
+    margin-top: 100px;
+
+}
+
+.props h1 {
+    font-size: 50px;
+}
+
+.props p {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.alert-warning {
+    display:inline-block;
+    color: black;
+    margin-top: 5px;
+    background: #6279bd;
+    clear: both;
+    width: 500px;
+    text-align: center;
+}
+
+form {
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+
+.title{
+	font-size: 36px;
+	padding-top: 10px;
+	text-align: center;
+}
+.menu{
+	list-style: none;
+	position: absolute;
+	top: 10px;
+	right: 100px;
+}
+
+header {
+    background-image: url("main/img/main_background.jpg")
+}
+
+header ul a {
+    text-decoration: none
+}
+
+header ul li {
+    color: #100720;
+    display: block;
+    margin-top: 20px;
+    transition: transform.6s ease;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+header ul li:hover, aside ul a:hover {
+    color: black;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+
+.registration-cssave{
+  padding:50px 0;
+}
+
+.registration-cssave form {
+  max-width:800px;
+  padding:50px 70px;
+  border-radius:10px;
+  box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+  background-color:#fff;
+}
+
+.registration-cssave form h3 {
+  font-weight:bold;
+  margin-bottom:30px;
+}
+
+.registration-cssave .item {
+  border-radius:10px;
+  margin-bottom:25px;
+  padding:10px 20px;
+}
+
+@media (max-width: 576px) {
+  .registration-cssave form {
+    padding:50px 20px;
+  }
+}
+
+.aboutprop h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.aboutprop {
+    margin-top: 15px;
+}
+
+.aboutprop p {
+    font-size: 25px;
+}
+
+.aboutprop form {
+    text-align: center;
+}
+
+.pricelist-table {
+  display: block;
+  margin: 10px 0 30px;
+}
+.pricelist-table h2 {
+  margin: 10px 0;
+}
+.pricelist-table tbody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.pricelist-table tbody tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color)!important;;
+}
+.pricelist-table tbody tr td a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+.pricelist-table tbody tr td a:hover {
+  text-decoration: none;
+}
+
+
+.errorlist nonfield {
+    padding-left: 0px;
+    color: black;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.errorlist li {
+    margin-top: 15px;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.errorlist {
+    margin-bottom: 0px;
+    margin-top: 15px;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.layout_element {
+    width: 1290px;
+    height: 300px;
+    background-image: url(remont_main.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+footer {
+    flex: 0 0 auto;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+    background-color: yellow;
+    height: 25%;
+    color: black;
+}
+
+

@@ -1,0 +1,314 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/secondMain.css' %}">
+    <title>Главная страница</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4b7a799c80.js" crossorigin="anonymous"></script>
+
+</head>
+<!-- Example Code -->
+<body>
+<header style="height: 100%;">
+    <nav class="navbar navbar-expand-lg scrolling-navbar shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img
+                        src="https://www.svgrepo.com/show/120980/saturn.svg"
+                        alt="" class="img-flid" height="60px" width="60px">
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Переключатель навигации">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 smooth-scroll">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" aria-current="page" href="#main">Главная</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Услуги
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#services">Мелкий ремонт</a>
+                                <hr class="my-0">
+                            </li>
+                            <li><a class="dropdown-item" href="#services">Сантехника</a>
+                                <hr class="my-0">
+                            </li>
+                            <li><a class="dropdown-item" href="#services">Электрика</a>
+                                <hr class="my-0">
+                            </li>
+                            <li><a class="dropdown-item" href="#services">Плиточные</a>
+                                <hr class="my-0">
+                            </li>
+                            <li><a class="dropdown-item" href="#services">Декоративные</a>
+                                <hr class="my-0">
+                            </li>
+                            <li><a class="dropdown-item" href="#services">Косметический ремонт</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" href="#">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" href="#">О нас</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="intro" class="view" style="background: url(https://celes.club/uploads/posts/2022-11/1667364071_1-celes-club-p-svetlaya-stena-fon-vkontakte-1.jpg); height: 100%;">
+        <div class="mask rgba-black-strong">
+            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-md-10">
+                        <h2 class="display-4 font-weight-bold white-text pt-5 mb-2" style="margin-bottom: 2px;">
+                            Сатурн
+                        </h2>
+                        <hr class="hr-light">
+                        <h4 class="white-text my-4">
+                            Ремонт домов и квартир в Екатеринбурге
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="mt-5">
+    <div class="container">
+        <section id="best-features" class="text-center">
+            <h2 class="mb-5 font-weight-bold">
+                Ремонтные услуги в Екатеринбурге
+            </h2>
+            <img src="https://www.prorabneva.ru/storage/post_content/July2022/DwhxdXYuFmRjcIhsr5Ta.jpg"
+                                 alt="" class="img-flid mb-5" height="600px" width="1000px">
+            <div class="row d-flex justify-content-center mb-4">
+                <div class="col-md-8">
+                    <p class="text-muted" align="justify" style="font-size: 20px;">
+                        Удобное и комфортное жилье определяет качество жизни любого человека. Некоторое время назад
+                        большинство людей стремились самостоятельно делать ремонт в своей квартире или же обращались за
+                        помощью к строительным бригадам. Через определенное время после проведения подобных работ
+                        приходилось вновь тратить время и деньги на исправление недоделок и недостатков.
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <h2 class="mb-5 font-weight-bold">
+                    Преимущества работы с нами
+                </h2>
+                <div class="col-md-4 mb-5">
+                    <i class="fa fa-truck-fast text-muted fa-5x"></i>
+                    <h4 class="my-4 font-weight-bold">Оперативность</h4>
+                    <p class="text-muted" style="font-size: 18px;">Бесплатная и оперативная услуга «замерщика» в любом районе Екатеринбурга</p>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <i class="fa-solid fa-bolt text-muted fa-5x"></i>
+                    <h4 class="my-4 font-weight-bold">Профессионализм</h4>
+                    <p class="text-muted" style="font-size: 18px;">Выполнение работ любой степени сложности специалистами-профессионалами</p>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <i class="fa-solid fa-trash text-muted fa-5x"></i>
+                    <h4 class="my-4 font-weight-bold">Чистота и аккуратность</h4>
+                    <p class="text-muted" style="font-size: 18px;">Чистота и аккуратность на всех этапах ремонта, полная уборка мусора,
+                        строительных отходов во время и после завершения ремонта</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="examples" class="text-center">
+            <h2 class="mb-5 font-weight-bold">
+                Услуги
+            </h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="view overlay">
+                        <a href="#">
+                            <img src="https://santehnikekaterinburg.ru/wp-content/uploads/2021/01/santehnik-24.jpg"
+                                 alt="" class="img-flid" height="300px" width="400px">
+                        </a>
+                        <div class="mask flex-center"></div>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">Сантехнические работы</h4>
+                    <ul class="text-muted" style="list-style-type: none;">
+                        <li> Установка смесителя от 780 руб/шт.</li>
+                        <li> Установка раковины от 490 руб/шт.</li>
+                        <li> Установка мойки от 790 руб/шт.</li>
+                        <li> Установка унитаза от 1450 руб/шт.</li>
+                        <li> Установка унитаза от 1450 руб/шт.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="view overlay zoom">
+                        <a href="#">
+                            <img src="https://moslenta.ru/thumb/1200x0/filters:quality(75):no_upscale()/imgs/2021/12/18/11/5110380/2a59874283132ab12b6a49fe7a2087fb9ffa166d.jpeg"
+                                 alt="" class="img-flid" height="300px" width="400px">
+                        </a>
+                        <div class="mask flex-center"></div>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">Работа с электрикой</h4>
+                    <ul class="text-muted" style="list-style-type: none;">
+                        <li> Установка щитка от 400 руб/шт.</li>
+                        <li> Установка бра от 280 руб/шт.</li>
+                        <li> Установка автомата от 200 руб/шт.</li>
+                        <li> Установка силовой розетки от 400 руб/шт.</li>
+                        <li> Демонтаж электрощитка от 200 руб/шт.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="view overlay zoom">
+                        <a href="#">
+                            <img src="https://livkerama.ru/wp-content/uploads/2018/08/1489228319_2-1-min-1024x683.jpg"
+                                 alt="" class="img-flid" height="300px" width="400px">
+                        </a>
+                        <div class="mask flex-center"></div>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">Плиточные работы</h4>
+                    <ul class="text-muted" style="list-style-type: none;">
+                        <li> Укладка плитки на пол от 800 руб/м2.</li>
+                        <li> Укладка мозаики от 1400 руб/м2.</li>
+                        <li> Укладка плитки на стены от 1200 руб/м2.</li>
+                        <li> Укладка керамогранита от 2200 руб/м2.</li>
+                        <li> Декоративный камень от 1800 руб/м2.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="view overlay zoom">
+                        <a href="#">
+                            <img src="https://f5.mirkvartir.me/journal/custom/ff4b1a7c-692b-4ea7-b75b-b6e46d371baa.jpg"
+                                 alt="" class="img-flid" height="300px" width="400px">
+                        </a>
+                        <div class="mask flex-center"></div>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">Декоративная отделка</h4>
+                    <ul class="text-muted" style="list-style-type: none;">
+                        <li> Декоративная штукатурка стен от 1200 руб/м2.</li>
+                        <li> Покраска стен от 800 руб/м2.</li>
+                        <li> Поклейка обоев от 1250 руб/м2.</li>
+                        <li> Укладка плитки от 1400 руб/м2.</li>
+                        <li> Установка натяжного потолка от 2200 руб/м2.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="view overlay zoom">
+                        <a href="#">
+                            <img src="https://borisov-praktik.by/upload/medialibrary/961/9614510a6385f0d8d0c4ff6f27527336.jpg"
+                                 alt="" class="img-flid" height="300px" width="400px">
+                        </a>
+                        <div class="mask flex-center"></div>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">Косметический ремонт</h4>
+                    <ul class="text-muted" style="list-style-type: none;">
+                        <li> Ремонт комнат от 1000 руб кв.м.</li>
+                        <li> Ремонт в новостройке от 1400 руб кв.м.</li>
+                        <li> Ремонт коттеджей от 1400 руб кв.м.</li>
+                        <li> Ремонт в хрущевке от 1400 руб кв.м.</li>
+                        <li> Ремонт стен от 1400 руб кв.м.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <div class="view overlay zoom">
+                        <a href="#">
+                            <img src="https://xn----7sbpb5aezbfk.xn--p1ai/attachments/Image/32505_156068449613811.jpg"
+                                 alt="" class="img-flid" height="300px" width="400px">
+                        </a>
+                        <div class="mask flex-center"></div>
+                    </div>
+                    <h4 class="my-4 font-weight-bold">Другие виды услуг</h4>
+                    <ul class="text-muted" style="list-style-type: none;">
+                        <li> Установка настенного карниза от 700 руб/шт.</li>
+                        <li> Установка жалюзи от 700 руб/шт.</li>
+                        <li> Навес ковра от 590 руб/шт.</li>
+                        <li> Установка экрана под ванну от 440 руб/шт.</li>
+                        <li> Установка вентиляционной решетки от 100 руб/шт.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <hr class="hr-light">
+        <section id="contact">
+            <h2 class="mb-5 font-weight-bold text-center">Контакты</h2>
+            <div class="row">
+                <div class="col-lg-5 col-md-12">
+                    <div class="p-5">
+                        <div class="md-form form-sm">
+                            <p><strong>Адрес:</strong> г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+                            <hr class="hr-light">
+                        </div>
+                        <div class="md-form form-sm">
+                            <p><strong>Телефон:</strong><a> +7 (908) 951-26-67</a></p>
+                            <hr class="hr-light">
+                        </div>
+                        <div class="md-form form-sm">
+                            <p><strong>Режим работы:</strong>с 9:00 до 18:00 (офис), до 21:00 (замер) без выходных</p>
+                            <hr class="hr-light">
+                        </div>
+                        <div class="md-form form-sm">
+                            <p><strong>E-mail:</strong> info@saturn.ru</p>
+                            <hr class="hr-light">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-12">
+
+                    <div style="position:relative;overflow:hidden;">
+                        <a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps"
+                           style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a>
+                        <a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_8_marta_49/YkkYcAdlSUABQFtsfXRzdX5lZg==/?ll=60.605117%2C56.824538&utm_medium=mapframe&utm_source=maps&z=18.15"
+                           style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица 8 Марта, 49 —
+                            Яндекс Карты</a>
+                        <iframe src="https://yandex.ru/map-widget/v1/-/CCUbMGDKkD" width="760" height="500"
+                                frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="footer" style="background-color: #f5f5f5">
+    <hr class="my-5">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">О компании</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p>ООО "Сатурн" г. Екатеринбург</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Контакты</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Почта: info@saturn.ru</p>
+                <p class="mb-3 mt-0">Номер телефона: +7 (908) 951-26-67</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Адрес</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Адрес: г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+                <p class="mb-3 mt-0">Время работы: с 9:00 до 18:00 без выходных </p>
+            </div>
+        </div>
+</footer>
+
+</body>
+<!-- End Example Code -->
+</html>

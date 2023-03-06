@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Профиль {% endblock %}
+
+{% block content %}
+<h1 style = "text-align: Center;">Личный кабинет</h1>
+<div>
+    <p>Логин: {{ user.get_username }} </p>
+    <p>Имя: {{ user.get_full_name }} </p>
+
+    <p>Дата регистрации: </p>
+    <button class="btn btn-primary btn-block create-account" type="submit" onclick="location.href='{% url 'logout' %}?next=/profile'">Выйти</button>
+    {% if user.is_staff %}
+    <button class="btn btn-primary btn-block create-account" type="submit" onclick="location.href='{% url 'props' %}?next=/profile'">Просмотр заявок</button>
+    <button class="btn btn-primary btn-block create-account" type="submit" onclick="location.href='{% url 'settings' %}?next=/profile'">Редактор услуг</button>
+    <button class="btn btn-primary btn-block create-account" type="submit" onclick="location.href='{% url 'createServices' %}?next=/profile'">Добавить услугу</button>
+    {% endif %}
+</div>
+{% endblock %}
