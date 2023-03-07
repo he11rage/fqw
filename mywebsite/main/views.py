@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView, DeleteView, DetailView, UpdateView
 
 
-from .forms import RegisterForm, ServicesForm
+from .forms import RegisterForm, ServicesForm, FeedbackForm
 from .models import Services
 
 
@@ -60,7 +60,6 @@ def servicesSettings(request):
     service = Services.objects.order_by('category')
     return render(request, 'main/settingsServices.html', {'services' : service})
 
-
 def createSettingsServices(request):
     error = ''
     if request.method == 'POST':
@@ -79,3 +78,33 @@ def createSettingsServices(request):
     }
 
     return render(request, 'main/createServices.html', data)
+
+
+
+def createFeedback(request):
+    error = ''
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('secondMainPage')
+        else:
+            error = 'Форма заполнена неверно'
+
+    form = FeedbackForm()
+
+    data = {
+        'form': form,
+        'error': error
+    }
+
+    return render(request, 'main/secondMainPage.html', data)
+
+
+class FeedbackView(FormView):
+    form_class = FeedbackForm
+    template_name = 'main/secondMainPage.html'
+    success_url = reverse_lazy("secondMainPage")
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

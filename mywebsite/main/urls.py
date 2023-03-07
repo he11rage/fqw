@@ -15,5 +15,5 @@ urlpatterns = [
     path('createServices', views.createSettingsServices, name="createServices"),
     path('settings/<int:pk>', views.ServicesDetailView.as_view(), name="services-detail"),
     path('settings/<int:pk>/update', views.ServicesUpdateView.as_view(), name="services-update"),
-    path('secondMainPage', views.secondMainPage, name='secondMainPage')
+    path('secondMainPage', views.createFeedback, name='secondMainPage')
 ]
