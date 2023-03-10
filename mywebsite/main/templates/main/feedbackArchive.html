@@ -11,7 +11,7 @@
     justify-content: flex-start;
     align-items: stretch;">
     <table>
-        <h2 style="text-align: center;">Заявки:</h2>
+        <h2 style="text-align: center;">Архив заявок:</h2>
         <tr class="mainTable">
             <th>Номер заявки</th>
             <th>ФИО</th>
@@ -22,7 +22,7 @@
         </tr>
         {% if feedback %}
         {% for el in feedback %}
-        {% if el.status == 'Активен' %}
+        {% if el.status == 'Не активен' %}
         <tr class="str">
             <td>{{ forloop.counter }}</td>
             <td>{{ el.surname }} {{ el.name }} {{ el.patronymic }}</td>
@@ -30,7 +30,7 @@
             <td>{{ el.date }} {{ el.time }}</td>
             <td>{{ el.status }}</td>
             <td>
-                <button class="btn btn-success" style="margin-bottom: 5px; width: 150px;"> Принять</button>
+                <button class="btn btn-secondary" style="margin-bottom: 5px; width: 150px;"> Подробнее</button>
                 <button class="btn btn-danger" style="width: 150px;"> Удалить</button>
             </td>
         </tr>
@@ -38,16 +38,13 @@
         {% endfor %}
         {% else %}
         <tr class="str">
-            <td>В данный</td>
-            <td>момент</td>
-            <td>входящих</td>
-            <td>заявок</td>
-            <td>нет</td>
+            <td>Архив</td>
+            <td>пуст</td>
         </tr>
         {% endif %}
     </table>
     <ul style="list-style-type: none;">
-        <li><a href="{% url 'feedbackArchive' %}" style="text-decoration: none;">Архив заявок</a></li>
+        <li><a href="{% url 'feedbackSettings' %}" style="text-decoration: none;">Вернуться к заявкам</a></li>
     </ul>
 
 </div>

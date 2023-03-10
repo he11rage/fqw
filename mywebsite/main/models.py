@@ -27,6 +27,7 @@ class Feedback(models.Model):
     feedback_text = models.TextField('Подробности')
     date = models.DateField('Дата звонка')
     time = models.TimeField('Время звонка', default=0)
+    status = models.TextField('Статус заявки', default='Активен')
 
     def __str__(self):
         return f'Заявка: {self.surname} {self.name} {self.patronymic}'

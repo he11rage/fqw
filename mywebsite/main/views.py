@@ -111,5 +111,11 @@ class FeedbackView(FormView):
 
 
 def feedbackSettings(request):
-    feedback = Feedback.objects.order_by('date')
+    orderbyList = ['status', 'date', 'time']
+    feedback = Feedback.objects.order_by(*orderbyList)
     return render(request, 'main/feedbackDetails.html', {'feedback' : feedback})
+
+def feedbackArchive(request):
+    orderbyList = ['status', 'date', 'time']
+    feedback = Feedback.objects.order_by(*orderbyList)
+    return render(request, 'main/feedbackArchive.html', {'feedback': feedback})
