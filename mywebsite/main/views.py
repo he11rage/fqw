@@ -6,7 +6,7 @@ from django.views.generic import CreateView, FormView, DeleteView, DetailView, U
 
 
 from .forms import RegisterForm, ServicesForm, FeedbackForm
-from .models import Services
+from .models import Services, Feedback
 
 
 def index(request):
@@ -108,3 +108,8 @@ class FeedbackView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+def feedbackSettings(request):
+    feedback = Feedback.objects.order_by('date')
+    return render(request, 'main/feedbackDetails.html', {'feedback' : feedback})

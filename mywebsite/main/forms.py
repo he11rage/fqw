@@ -45,7 +45,7 @@ class FeedbackForm(ModelForm):
 
         widgets = {
             "surname": TextInput(attrs={
-                'style': "border: none; border-bottom: 1px solid white; background-color: transparent;",
+                'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",
                 'minlength': 4,
                 'maxlength': 50,
                 'required': '',
@@ -53,7 +53,7 @@ class FeedbackForm(ModelForm):
                 'placeholder': 'Фамилия'
             }),
             "name": TextInput(attrs={
-                'style': "border: none; border-bottom: 1px solid white; background-color: transparent;",
+                'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",
                 'minlength': 4,
                 'maxlength': 50,
                 'required': '',
@@ -61,7 +61,7 @@ class FeedbackForm(ModelForm):
                 'placeholder': 'Имя'
             }),
             "patronymic": TextInput(attrs={
-                'style': "border: none; border-bottom: 1px solid white; background-color: transparent;",
+                'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",
                 'minlength': 4,
                 'maxlength': 50,
                 'required': '',
@@ -69,7 +69,7 @@ class FeedbackForm(ModelForm):
                 'placeholder': 'Отчество'
             }),
             "phone_number": TextInput(attrs={
-                'style': "border: none; border-bottom: 1px solid white; background-color: transparent;",
+                'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",
                 'minlength': 11,
                 'maxlength': 11,
                 'required': '',
@@ -77,17 +77,17 @@ class FeedbackForm(ModelForm):
                 'placeholder': 'Номер телефона'
             }),
             "feedback_text": Textarea(attrs={
-                'style': "border: none; border-bottom: 1px solid white; background-color: transparent;",
+                'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none; height: 38px; resize: none;",
                 'class': 'form-control',
-                'placeholder': 'Текст',
+                'placeholder': 'Что вы хотите узнать?',
                 'cols': 15, 'rows': 5
             }),
             "date": DateInput(attrs={
-                'style': "border: none; border-bottom: 1px solid white; background-color: transparent;",
+                'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",
                 'class': 'form-control'
             }),
             "time": TimeInput(attrs={
-                'style': "border: none; border-bottom: 1px solid white; background-color: transparent;",
+                'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",
                 'class': 'form-control'
             }),
         }
