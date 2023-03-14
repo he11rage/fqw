@@ -1,4 +1,3 @@
-
 from django.urls import path, include
 from . import views
 from .views import RegisterView
@@ -18,4 +17,7 @@ urlpatterns = [
     path('secondMainPage', views.createFeedback, name='secondMainPage'),
     path('feedbackDetails', views.feedbackSettings, name='feedbackSettings'),
     path('feedbackArchive', views.feedbackArchive, name='feedbackArchive'),
+    path('change_feedback_status/', views.change_feedback_status, name='change_feedback_status'),
+    path('feedback/delete/<int:feedback_id>/', views.delete_feedback, name='delete_feedback'),
+
 ]

@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView, DeleteView, DetailView, UpdateView
 
@@ -100,16 +100,6 @@ def createFeedback(request):
 
     return render(request, 'main/secondMainPage.html', data)
 
-
-class FeedbackView(FormView):
-    form_class = FeedbackForm
-    template_name = 'main/secondMainPage.html'
-    success_url = reverse_lazy("secondMainPage")
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
-
-
 def feedbackSettings(request):
     orderbyList = ['status', 'date', 'time']
     feedback = Feedback.objects.order_by(*orderbyList)
@@ -119,3 +109,19 @@ def feedbackArchive(request):
     orderbyList = ['status', 'date', 'time']
     feedback = Feedback.objects.order_by(*orderbyList)
     return render(request, 'main/feedbackArchive.html', {'feedback': feedback})
+
+def change_feedback_status(request):
+    if request.method == 'POST':
+        feedback_id = request.POST.get('feedback_id')
+        new_status = request.POST.get('new_status')
+        feedback = Feedback.objects.get(id=feedback_id)
+        feedback.status = new_status
+        feedback.save()
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'message': 'Invalid request method'})
+
+def delete_feedback(request, feedback_id):
+    feedback = Feedback.objects.get(id=feedback_id)
+    feedback.delete()
+    return redirect('feedbackArchive')
