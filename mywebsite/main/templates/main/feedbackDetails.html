@@ -1,5 +1,6 @@
 {% extends 'main/secondLayout.html' %}
 {% load static %}
+{% load my_tags %}
 {% block title %} Заявки {% endblock %}
 
 {% block content %}
@@ -10,9 +11,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;">
-    <table>
+    <table class="feedbackTable table table-hover" style="text-align: center;">
         <h2 style="text-align: center;">Заявки:</h2>
-        <tr class="mainTable">
+        <tr style="font-size: 20px;">
             <th>Номер заявки</th>
             <th>ФИО</th>
             <th>Номер телефона</th>
@@ -23,8 +24,8 @@
         {% if feedback %}
         {% for el in feedback %}
         {% if el.status == 'Активен' %}
-        <tr class="str">
-            <td>{{ forloop.counter }}</td>
+        <tr>
+            <td>{% increment %}</td>
             <td>{{ el.surname }} {{ el.name }} {{ el.patronymic }}</td>
             <td>{{ el.phone_number }}</td>
             <td>{{ el.date }} {{ el.time }}</td>

@@ -1,5 +1,6 @@
 {% extends 'main/secondLayout.html' %}
 {% load static %}
+{% load my_tags %}
 {% block title %} Заявки {% endblock %}
 
 {% block content %}
@@ -10,9 +11,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;">
-    <table>
+    <table class="feedbackTable table table-hover" style="text-align: center;">
         <h2 style="text-align: center;">Архив заявок:</h2>
-        <tr class="mainTable">
+        <tr style="font-size: 20px;">
             <th>Номер заявки</th>
             <th>ФИО</th>
             <th>Номер телефона</th>
@@ -23,8 +24,8 @@
         {% if feedback %}
         {% for el in feedback %}
         {% if el.status == 'Не активен' %}
-        <tr class="str">
-            <td>{{ forloop.counter }}</td>
+        <tr>
+            <td>{% increment %} </td>
             <td>{{ el.surname }} {{ el.name }} {{ el.patronymic }}</td>
             <td>{{ el.phone_number }}</td>
             <td>{{ el.date }} {{ el.time }}</td>
@@ -56,7 +57,9 @@
                             </ul>
                         </div>
                         <div class="modal-footer">
-                            <button class="change-status-button btn btn-secondary" data-feedback-id="{{ el.id }}" data-new-status="Активен">Изменить статус</button>
+                            <button class="change-status-button btn btn-secondary" data-feedback-id="{{ el.id }}"
+                                    data-new-status="Активен">Изменить статус
+                            </button>
                             <a class="btn btn-danger" href="{% url 'delete_feedback' el.id %}">Удалить заявку</a>
                         </div>
                     </div>
@@ -78,8 +81,8 @@
 
 </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
         $(document).ready(function() {
             $('.change-status-button').on('click', function() {
                 var feedbackId = $(this).data('feedback-id');
@@ -105,6 +108,7 @@
                 });
             });
         });
-    </script>
+
+</script>
 
 {% endblock %}
