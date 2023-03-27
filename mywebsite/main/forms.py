@@ -64,9 +64,8 @@ class FeedbackForm(ModelForm):
                 'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",
                 'minlength': 4,
                 'maxlength': 50,
-                'required': '',
                 'class': 'form-control',
-                'placeholder': 'Отчество'
+                'placeholder': 'Отчество, если имеется'
             }),
             "phone_number": TextInput(attrs={
                 'style': "border: none; border-bottom: 1px solid white; background-color: transparent; box-shadow: none;",

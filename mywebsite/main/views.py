@@ -87,7 +87,7 @@ def createFeedback(request):
         form = FeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('secondMainPage')
+            return redirect('home')
         else:
             error = 'Форма заполнена неверно'
 

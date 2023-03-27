@@ -3,7 +3,7 @@ from . import views
 from .views import RegisterView
 
 urlpatterns = [
-    path('', views.index, name='home'),
+    # path('', views.index, name='home'),
     path('services', views.services, name='services'),
     path('about-us', views.about, name='about'),
     path('contacts', views.contacts, name='contacts'),
@@ -14,7 +14,7 @@ urlpatterns = [
     path('createServices', views.createSettingsServices, name="createServices"),
     path('settings/<int:pk>', views.ServicesDetailView.as_view(), name="services-detail"),
     path('settings/<int:pk>/update', views.ServicesUpdateView.as_view(), name="services-update"),
-    path('secondMainPage', views.createFeedback, name='secondMainPage'),
+    path('', views.createFeedback, name='home'),
     path('feedbackDetails', views.feedbackSettings, name='feedbackSettings'),
     path('feedbackArchive', views.feedbackArchive, name='feedbackArchive'),
     path('change_feedback_status/', views.change_feedback_status, name='change_feedback_status'),
