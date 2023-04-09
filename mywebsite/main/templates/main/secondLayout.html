@@ -16,7 +16,6 @@
             integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/4b7a799c80.js" crossorigin="anonymous"></script>
-
 </head>
 <!-- Example Code -->
 <body style="height: 100%;">
@@ -62,11 +61,33 @@
                     <li class="nav-item">
                         <a href="{% url 'about'%}" class="nav-link waves-effect waves-light" href="#">О нас</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{% url 'profile'%}" class="nav-link waves-effect waves-light" href="#">Кабинет
-                            сотрудника</a>
+                </ul>
+
+                {% if user.is_staff %}
+                <!--
+                                <p class="navbar-nav mb-2 mb-lg-0 smooth-scroll" style="margin-right: 5px;">{{ user.username }}</p>
+                -->
+                <ul class="navbar-nav mb-2 mb-lg-0 smooth-scroll">
+                    <li style="margin-top: 10px; color: var(--bs-nav-link-color);">
+                        {{ user.username }}
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <li><a href=" {% url 'feedbackSettings'%}" class="dropdown-item" href="#services">Заявки</a>
+                            </li>
+                            <li><a href="{% url 'servicesDetails'%}" class="dropdown-item" href="#services">
+                                Редактор услуг</a>
+                            </li>
+                            <li><a href="{% url 'logout' %}?next=/" class="dropdown-item" href="#services">Выйти</a></li>
+                        </ul>
                     </li>
                 </ul>
+
+                {% endif %}
             </div>
         </div>
     </nav>

@@ -125,3 +125,57 @@ def delete_feedback(request, feedback_id):
     feedback = Feedback.objects.get(id=feedback_id)
     feedback.delete()
     return redirect('feedbackArchive')
+
+def servicesDetails(request):
+    orderbyList = ['category', 'title', 'price']
+    selected_category = request.GET.get('category', 'all')
+    search_query = request.GET.get('query', '')
+
+    if selected_category == 'all':
+        services = Services.objects.order_by(*orderbyList)
+    else:
+        services = Services.objects.filter(category=selected_category).order_by(*orderbyList)
+
+    if search_query:
+        services = services.filter(title__icontains=search_query)
+
+    return render(request, 'main/servicesDetails.html', {'services' : services})
+
+def edit_service(request):
+    if request.method == 'POST':
+        service_id = request.POST.get('service_id')
+        title = request.POST.get('title')
+        price = request.POST.get('price')
+        full_text = request.POST.get('full_text')
+        category = request.POST.get('category')
+
+        if title and price and full_text and category:  # Проверяем, что все поля заполнены
+            try:
+                service = Services.objects.get(id=service_id)
+                service.title = title
+                service.price = price
+                service.full_text = full_text
+                service.category = category
+                service.save()
+                return JsonResponse({'success': True})
+            except Exception as e:
+                return JsonResponse({'success': False, 'message': str(e)})
+        else:
+            return JsonResponse({'success': False, 'message': 'Не все поля заполнены'})
+
+
+def add_service(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        price = request.POST.get('price')
+        full_text = request.POST.get('full_text')
+        category = request.POST.get('category')
+
+        if title and price and full_text and category:  # Проверяем, что все поля заполнены
+            try:
+                service = Services.objects.create(title=title, price=price, full_text=full_text, category=category)
+                return JsonResponse({'success': True})
+            except Exception as e:
+                return JsonResponse({'success': False, 'message': str(e)})
+        else:
+            return JsonResponse({'success': False, 'message': 'Не все поля заполнены'})
