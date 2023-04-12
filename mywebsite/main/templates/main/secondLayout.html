@@ -16,8 +16,28 @@
             integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
             crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/4b7a799c80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <style>
+        <style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
+    </style>
 </head>
 <!-- Example Code -->
+<!--<style>
+    main {
+  background-image: url('static/main/img/protruding-squares.svg');
+  background-repeat: repeat;
+}
+</style>-->
 <body style="height: 100%;">
 <header style="height: 100%;">
     <nav class="navbar navbar-expand-lg scrolling-navbar shadow">
@@ -36,37 +56,20 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 smooth-scroll">
                     <li class="nav-item">
                         <a href="{% url 'home'%}" class="nav-link waves-effect waves-light"
-                           aria-current="page" href="#main">Главная</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Услуги
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a href="{% url 'services'%}" class="dropdown-item" href="#services">Мелкий ремонт</a>
-                            </li>
-                            <li><a href="{% url 'services'%}" class="dropdown-item" href="#services">Сантехника</a></li>
-                            <li><a href="{% url 'services'%}" class="dropdown-item" href="#services">Электрика</a></li>
-                            <li><a href="{% url 'services'%}" class="dropdown-item" href="#services">Плиточные</a></li>
-                            <li><a href="{% url 'services'%}" class="dropdown-item" href="#services">Декоративные</a>
-                            </li>
-                            <li><a href="{% url 'services'%}" class="dropdown-item" href="#services">Косметический
-                                ремонт</a></li>
-                        </ul>
+                           aria-current="page">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'contacts' %}" class="nav-link waves-effect waves-light" href="#">Контакты</a>
+                        <a href="{% url 'services'%}" class="nav-link waves-effect waves-light">Услуги</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'about'%}" class="nav-link waves-effect waves-light" href="#">О нас</a>
+                        <a href="{% url 'about'%}" class="nav-link waves-effect waves-light">О компании</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'contacts' %}" class="nav-link waves-effect waves-light">Контакты</a>
                     </li>
                 </ul>
 
                 {% if user.is_staff %}
-                <!--
-                                <p class="navbar-nav mb-2 mb-lg-0 smooth-scroll" style="margin-right: 5px;">{{ user.username }}</p>
-                -->
                 <ul class="navbar-nav mb-2 mb-lg-0 smooth-scroll">
                     <li style="margin-top: 10px; color: var(--bs-nav-link-color);">
                         {{ user.username }}
@@ -77,12 +80,18 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <li><a href=" {% url 'feedbackSettings'%}" class="dropdown-item" href="#services">Заявки</a>
+                            {% if user.is_superuser %}
+                            <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addUserModal">Добавить
+                                сотрудника</a>
                             </li>
-                            <li><a href="{% url 'servicesDetails'%}" class="dropdown-item" href="#services">
+                            {% endif %}
+                            <li><a href=" {% url 'feedbackSettings'%}" class="dropdown-item">Заявки</a>
+                            </li>
+                            <li><a href="{% url 'servicesDetails'%}" class="dropdown-item">
                                 Редактор услуг</a>
                             </li>
-                            <li><a href="{% url 'logout' %}?next=/" class="dropdown-item" href="#services">Выйти</a></li>
+                            <li><a href="{% url 'logout' %}?next=/" class="dropdown-item">Выйти</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -92,6 +101,51 @@
         </div>
     </nav>
 </header>
+
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Добавление нового пользователя</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Логин:</label>
+                    <input type="text" class="form-control" id="login" name="login" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Имя:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Фамилия:</label>
+                    <input type="text" class="form-control" id="surname" name="surname" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Пароль:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="form-check" style="margin-top: 5px;">
+                    <input type="checkbox" class="form-check-input" id="is_staff" name="is_staff" value="True">
+                    <label class="form-check-label">Сотрудник</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="add-user-button btn btn-success" type="button">
+                    Добавить
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Закрыть окно
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <main>
     {% block content %}
@@ -108,10 +162,52 @@
     });
 
 
-
-
-
-
-
 </script>
+
+<script>
+    $(document).ready(function() {
+    $('.add-user-button').on('click', function() {
+        var login = $('#login').val();
+        var name = $('#name').val();
+        var surname = $('#surname').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var is_staff = $('#is_staff').val();
+
+        $.ajax({
+            url: "{% url 'add_user' %}",
+            method: 'POST',
+            data: {
+                'login': login,
+                'name': name,
+                'surname': surname,
+                'email': email,
+                'password': password,
+                'is_staff': is_staff,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Пользователь успешно добавлен!');
+                    location.reload();
+                } else {
+                    alert('Произошла ошибка: ' + response.message);
+                }
+            },
+            error: function() {
+                alert('Произошла ошибка при отправке запроса!');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+    const servicesLink = document.querySelector('.dropdown-toggle[href="{% url 'services'%}"]');
+    servicesLink.addEventListener('click', function (event) {
+        event.preventDefault(); // останавливаем дальнейшую обработку события по умолчанию (открытие меню)
+        window.location.href = this.href; // переходим на указанную страницу
+    });
+</script>
+
 </html>

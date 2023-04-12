@@ -1,9 +1,10 @@
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView, DeleteView, DetailView, UpdateView
-
 
 from .forms import RegisterForm, ServicesForm, FeedbackForm
 from .models import Services, Feedback
@@ -18,12 +19,12 @@ def about(request):
 
 
 def services(request):
-    service = Services.objects.all()
-    return render(request, 'main/services.html', {'services' : service})
+    return render(request, 'main/services.html')
 
 
 def contacts(request):
     return render(request, 'main/contacts.html')
+
 
 def secondMainPage(request):
     return render(request, 'main/secondMainPage.html')
@@ -38,9 +39,11 @@ class RegisterView(FormView):
     form_class = RegisterForm
     template_name = 'registration/register.html'
     success_url = reverse_lazy("profile")
+
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
 
 class ServicesDetailView(DeleteView):
     model = Services
@@ -48,17 +51,19 @@ class ServicesDetailView(DeleteView):
     success_url = '/settings'
     context_object_name = 'services'
 
+
 class ServicesUpdateView(UpdateView):
-        model = Services
-        template_name = 'main/changeServices.html'
-        form_class = ServicesForm
-        success_url = '/settings'
-        context_object_name = 'services'
+    model = Services
+    template_name = 'main/changeServices.html'
+    form_class = ServicesForm
+    success_url = '/settings'
+    context_object_name = 'services'
 
 
 def servicesSettings(request):
     service = Services.objects.order_by('category')
-    return render(request, 'main/settingsServices.html', {'services' : service})
+    return render(request, 'main/settingsServices.html', {'services': service})
+
 
 def createSettingsServices(request):
     error = ''
@@ -80,7 +85,6 @@ def createSettingsServices(request):
     return render(request, 'main/createServices.html', data)
 
 
-
 def createFeedback(request):
     error = ''
     if request.method == 'POST':
@@ -100,15 +104,18 @@ def createFeedback(request):
 
     return render(request, 'main/secondMainPage.html', data)
 
+
 def feedbackSettings(request):
     orderbyList = ['status', 'date', 'time']
     feedback = Feedback.objects.order_by(*orderbyList)
-    return render(request, 'main/feedbackDetails.html', {'feedback' : feedback})
+    return render(request, 'main/feedbackDetails.html', {'feedback': feedback})
+
 
 def feedbackArchive(request):
     orderbyList = ['status', 'date', 'time']
     feedback = Feedback.objects.order_by(*orderbyList)
     return render(request, 'main/feedbackArchive.html', {'feedback': feedback})
+
 
 def change_feedback_status(request):
     if request.method == 'POST':
@@ -121,10 +128,12 @@ def change_feedback_status(request):
     else:
         return JsonResponse({'success': False, 'message': 'Invalid request method'})
 
+
 def delete_feedback(request, feedback_id):
     feedback = Feedback.objects.get(id=feedback_id)
     feedback.delete()
     return redirect('feedbackArchive')
+
 
 def servicesDetails(request):
     orderbyList = ['category', 'title', 'price']
@@ -139,7 +148,8 @@ def servicesDetails(request):
     if search_query:
         services = services.filter(title__icontains=search_query)
 
-    return render(request, 'main/servicesDetails.html', {'services' : services})
+    return render(request, 'main/servicesDetails.html', {'services': services})
+
 
 def edit_service(request):
     if request.method == 'POST':
@@ -179,3 +189,106 @@ def add_service(request):
                 return JsonResponse({'success': False, 'message': str(e)})
         else:
             return JsonResponse({'success': False, 'message': 'Не все поля заполнены'})
+
+
+def add_user(request):
+    if request.method == 'POST':
+        login = request.POST.get('login')
+        name = request.POST.get('name')
+        surname = request.POST.get('surname')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        is_staff = request.POST.get('is_staff')
+
+        if login and name and surname and email and password:
+            try:
+                user = User.objects.create_user(username=login, email=email, password=password, first_name=name,
+                                                last_name=surname, is_staff=is_staff)
+                return JsonResponse({'success': True})
+            except Exception as e:
+                return JsonResponse({'success': False, 'message': str(e)})
+        else:
+            return JsonResponse({'success': False, 'message': 'Не все поля заполнены'})
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            error_message = "Invalid username or password"
+    else:
+        error_message = None
+    return render(request, 'main/login.html', {'error_message': error_message})
+
+
+def aboutFeedback(request):
+    error = ''
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            error = 'Форма заполнена неверно'
+
+    form = FeedbackForm()
+
+    data = {
+        'form': form,
+        'error': error
+    }
+
+    return render(request, 'main/about.html', data)
+
+
+def send_feedback(request):
+    if request.method == 'POST':
+        surname = request.POST.get('surname')
+        name = request.POST.get('name')
+        patronymic = request.POST.get('patronymic')
+        phone_number = request.POST.get('phone_number')
+        full_text = request.POST.get('full_text')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        if surname != '' and name != '' and phone_number != '' and date != '' and time != '':
+            try:
+                feedback = Feedback.objects.create(surname=surname, name=name, patronymic=patronymic,
+                                                   phone_number=phone_number, feedback_text=full_text,
+                                                   date=date, time=time)
+                return JsonResponse({'success': True})
+            except Exception as e:
+                return JsonResponse({'success': False, 'message': str(e)})
+        else:
+            return JsonResponse({'success': False,
+                                 'message': 'Ошибка. Фамилия: {}, Имя: {}, Номер телефона: {}, Дата: {}, Время: {}'.format(
+                                     surname, name, phone_number, date, time)})
+
+def servicesSanteh(request):
+    service = Services.objects.all()
+    return render(request, 'main/santeh.html', {'services': service})
+
+def servicesElectric(request):
+    service = Services.objects.all()
+    return render(request, 'main/electric.html', {'services': service})
+
+def servicesBrick(request):
+    service = Services.objects.all()
+    return render(request, 'main/brick.html', {'services': service})
+
+def servicesDecorative(request):
+    service = Services.objects.all()
+    return render(request, 'main/decorative.html', {'services': service})
+
+def servicesCosmetic(request):
+    service = Services.objects.all()
+    return render(request, 'main/cosmetic.html', {'services': service})
+
+def servicesAnother(request):
+    service = Services.objects.all()
+    return render(request, 'main/another.html', {'services': service})

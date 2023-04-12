@@ -1,63 +1,171 @@
-{% extends 'main/layout.html' %}
+{% extends 'main/secondLayout.html' %}
 
 {% block title %} Услуги {% endblock %}
 
 {% block content %}
 
-<section class="pricelist-block">
-    <p>Стоимость услуг определяется конкретно для каждого вызова. При этом учитывается уровень квалификации, сложность и
-        объем работ, стоимость материалов. При большом заказе или одновременном выполнении нескольких услуг исполнители
-        в большинстве случаев предоставляют скидки.</p>
-    <h3>Мелкий ремонт</h3>
-    <table class="pricelist-table">
-        <tbody>
-        {% if services %}
-        {% for el in services %}
-        {% if el.category == 'Прочее' %}
-        <tr>
-            <td>{{ el.title }}</td>
-            <td>от {{ el.price }} руб/шт.</td>
-        </tr>
-        {% endif %}
-        {% endfor %}
-        {% else %}
-        <p>Услуг нет</p>
-        {% endif %}
-        </tbody>
-    </table>
-    <h3>Мелкий ремонт Электрики</h3>
-    <table class="pricelist-table">
-        <tbody>
-        {% if services %}
-        {% for el in services %}
-        {% if el.category == 'Электрика' %}
-        <tr>
-            <td>{{ el.title }}</td>
-            <td>от {{ el.price }} руб/шт.</td>
-        </tr>
-        {% endif %}
-        {% endfor %}
-        {% else %}
-        <p>Услуг нет</p>
-        {% endif %}
-        </tbody>
-    </table>
-    <h3>Мелкий ремонт Сантехники</h3>
-    <table class="pricelist-table">
-        <tbody>
-        {% if services %}
-        {% for el in services %}
-        {% if el.category == 'Сантехника' %}
-        <tr>
-            <td>{{ el.title }}</td>
-            <td>от {{ el.price }} руб/шт.</td>
-        </tr>
-        {% endif %}
-        {% endfor %}
-        {% else %}
-        <p>Услуг нет</p>
-        {% endif %}
-        </tbody>
-    </table>
-</section>
+<style>
+    .view.overlay {
+  position: relative;
+  display: inline-block;
+}
+
+.view.overlay .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.view.overlay:hover .mask {
+  opacity: 1;
+}
+
+.view.overlay:hover .btn-details {
+  opacity: 1;
+}
+
+.view.overlay .btn-details {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  text-transform: uppercase;
+  border: 2px solid rgb(255, 255, 255);
+  padding: 10px 30px;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  margin-bottom: 110px;
+  text-decoration: none;
+}
+
+
+</style>
+
+<div class="container">
+    <section id="examples" class="text-center">
+        <h2 class="mb-5 mt-5 font-weight-bold">
+            Услуги
+        </h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="view overlay">
+                    <a href="#">
+                        <img src="https://santehnikekaterinburg.ru/wp-content/uploads/2021/01/santehnik-24.jpg"
+                             alt="" class="img-flid" height="300px" width="400px">
+                    </a>
+                    <div class="mask flex-center"></div>
+                    <a href="{% url 'santeh'%}" class="btn-details">Подробнее</a>
+                </div>
+                <h4 class="my-4 font-weight-bold">Сантехнические работы</h4>
+                <ul class="text-muted" style="list-style-type: none;">
+                    <li> Установка смесителя от 780 руб/шт.</li>
+                    <li> Установка раковины от 490 руб/шт.</li>
+                    <li> Установка мойки от 790 руб/шт.</li>
+                    <li> Установка унитаза от 1450 руб/шт.</li>
+                    <li> Установка унитаза от 1450 руб/шт.</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="view overlay zoom">
+                    <a href="{% url 'electric'%}">
+                        <img src="https://moslenta.ru/thumb/1200x0/filters:quality(75):no_upscale()/imgs/2021/12/18/11/5110380/2a59874283132ab12b6a49fe7a2087fb9ffa166d.jpeg"
+                             alt="" class="img-flid" height="300px" width="400px">
+                    </a>
+                    <div class="mask flex-center"></div>
+                    <a href="{% url 'electric'%}" class="btn-details">Подробнее</a>
+                </div>
+                <h4 class="my-4 font-weight-bold">Работа с электрикой</h4>
+                <ul class="text-muted" style="list-style-type: none;">
+                    <li> Установка щитка от 400 руб/шт.</li>
+                    <li> Установка бра от 280 руб/шт.</li>
+                    <li> Установка автомата от 200 руб/шт.</li>
+                    <li> Установка силовой розетки от 400 руб/шт.</li>
+                    <li> Демонтаж электрощитка от 200 руб/шт.</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="view overlay zoom">
+                    <a href="{% url 'brick'%}">
+                        <img src="https://livkerama.ru/wp-content/uploads/2018/08/1489228319_2-1-min-1024x683.jpg"
+                             alt="" class="img-flid" height="300px" width="400px">
+                    </a>
+                    <div class="mask flex-center"></div>
+                    <a href="{% url 'brick'%}" class="btn-details">Подробнее</a>
+                </div>
+                <h4 class="my-4 font-weight-bold">Плиточные работы</h4>
+                <ul class="text-muted" style="list-style-type: none;">
+                    <li> Укладка плитки на пол от 800 руб/м2.</li>
+                    <li> Укладка мозаики от 1400 руб/м2.</li>
+                    <li> Укладка плитки на стены от 1200 руб/м2.</li>
+                    <li> Укладка керамогранита от 2200 руб/м2.</li>
+                    <li> Декоративный камень от 1800 руб/м2.</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="view overlay zoom">
+                    <a href="#">
+                        <img src="https://f5.mirkvartir.me/journal/custom/ff4b1a7c-692b-4ea7-b75b-b6e46d371baa.jpg"
+                             alt="" class="img-flid" height="300px" width="400px">
+                    </a>
+                    <div class="mask flex-center"></div>
+                    <a href="{% url 'decorative'%}" class="btn-details">Подробнее</a>
+                </div>
+                <h4 class="my-4 font-weight-bold">Декоративная отделка</h4>
+                <ul class="text-muted" style="list-style-type: none;">
+                    <li> Декоративная штукатурка стен от 1200 руб/м2.</li>
+                    <li> Покраска стен от 800 руб/м2.</li>
+                    <li> Поклейка обоев от 1250 руб/м2.</li>
+                    <li> Укладка плитки от 1400 руб/м2.</li>
+                    <li> Установка натяжного потолка от 2200 руб/м2.</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="view overlay zoom">
+                    <a href="{% url 'cosmetic'%}">
+                        <img src="https://borisov-praktik.by/upload/medialibrary/961/9614510a6385f0d8d0c4ff6f27527336.jpg"
+                             alt="" class="img-flid" height="300px" width="400px">
+                    </a>
+                    <div class="mask flex-center"></div>
+                    <a href="{% url 'cosmetic'%}" class="btn-details">Подробнее</a>
+                </div>
+                <h4 class="my-4 font-weight-bold">Косметический ремонт</h4>
+                <ul class="text-muted" style="list-style-type: none;">
+                    <li> Ремонт комнат от 1000 руб кв.м.</li>
+                    <li> Ремонт в новостройке от 1400 руб кв.м.</li>
+                    <li> Ремонт коттеджей от 1400 руб кв.м.</li>
+                    <li> Ремонт в хрущевке от 1400 руб кв.м.</li>
+                    <li> Ремонт стен от 1400 руб кв.м.</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="view overlay zoom">
+                    <a href="#">
+                        <img src="https://xn----7sbpb5aezbfk.xn--p1ai/attachments/Image/32505_156068449613811.jpg"
+                             alt="" class="img-flid" height="300px" width="400px">
+                    </a>
+                    <div class="mask flex-center"></div>
+                    <a href="{% url 'another'%}" class="btn-details">Подробнее</a>
+                </div>
+                <h4 class="my-4 font-weight-bold">Другие виды услуг</h4>
+                <ul class="text-muted" style="list-style-type: none;">
+                    <li> Установка настенного карниза от 700 руб/шт.</li>
+                    <li> Установка жалюзи от 700 руб/шт.</li>
+                    <li> Навес ковра от 590 руб/шт.</li>
+                    <li> Установка экрана под ванну от 440 руб/шт.</li>
+                    <li> Установка вентиляционной решетки от 100 руб/шт.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
 {% endblock %}

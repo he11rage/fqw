@@ -5,7 +5,7 @@ from .views import RegisterView
 urlpatterns = [
     # path('', views.index, name='home'),
     path('services', views.services, name='services'),
-    path('about-us', views.about, name='about'),
+    path('about-us', views.aboutFeedback, name='about'),
     path('contacts', views.contacts, name='contacts'),
     path('accounts/', include("django.contrib.auth.urls")),
     path('profile', views.profile_view, name="profile"),
@@ -21,6 +21,15 @@ urlpatterns = [
     path('feedback/delete/<int:feedback_id>/', views.delete_feedback, name='delete_feedback'),
     path('servicesDetails', views.servicesDetails, name='servicesDetails'),
     path('edit_service/', views.edit_service, name='edit_service'),
-    path('add_service/', views.add_service, name='add_service')
+    path('add_service/', views.add_service, name='add_service'),
+    path('add_user/', views.add_user, name='add_user'),
+    path('login/', views.login_view, name='login'),
+    path('send_feedback/', views.send_feedback, name='send_feedback'),
+    path('plumbing/', views.servicesSanteh, name='santeh'),
+    path('electric/', views.servicesElectric, name='electric'),
+    path('tile/', views.servicesBrick, name='brick'),
+    path('decorative/', views.servicesDecorative, name='decorative'),
+    path('cosmetic/', views.servicesCosmetic, name='cosmetic'),
+    path('another/', views.servicesAnother, name='another')
 
 ]
