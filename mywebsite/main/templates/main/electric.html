@@ -1,139 +1,57 @@
-{% extends 'main/secondLayout.html' %}
+{% extends 'main/servicesLayout.html' %}
 
 {% block title %} Электрика {% endblock %}
 {% load my_tags %}
-{% block content %}
 
-<style>
-    ul {
-    display: block;
-    list-style: none;
-    padding: 0px;
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    }
+{% block services %}
 
-    ul li a {
-        text-decoration: none;
-        color: #000000;
-        }
-
-</style>
-
-<div class="container">
-    <div class="col-xs-9 mt-5 mb-5" style="width: 80%; float: right; padding-left: 50px;">
-        <h4 style="margin-bottom: 25px; text-transform: uppercase;"> Работа с электрикой</h4>
-        <img style="text-align: center;"
-             src="https://moslenta.ru/thumb/1200x0/filters:quality(75):no_upscale()/imgs/2021/12/18/11/5110380/2a59874283132ab12b6a49fe7a2087fb9ffa166d.jpeg"
-             alt="" class="img-flid" width="100%">
-
-        <hr class="hr mt-5" style="color: #a3a4a5;">
-
-        <h4 class="mb-3" style="text-transform: uppercase;">
-            Необходимо обновление электрики в вашем доме?
-        </h4>
-        <p align="justify" style="font-size: 18px;">
-            Электрические работы требуют большого внимания и профессиональных знаний, а несоблюдение норм и правил
-            безопасности может привести к серьезным последствиям. Наша команда специализируется на услугах по установке,
-            ремонту и обслуживанию электрооборудования в вашем доме или квартире. Мы гарантируем качество наших услуг и
-            выполняем работу в соответствии со всеми необходимыми нормами и правилами безопасности. Обратитесь к нам,
-            чтобы обеспечить надежную и безопасную электросистему в вашем доме.
-        </p>
-
-        <hr class="hr mt-3" style="color: #a3a4a5;">
-
-        <h3 class="mb-3 mt-3" style="text-transform: uppercase;">
-            Наш прайс-лист:
-        </h3>
-
-        {% if services %}
-        <table class="santehServicesTable table table-bordered table-hover" style="text-align: center;">
-            <tr style="font-size: 20px;">
-                <th>Номер</th>
-                <th>Виды работ</th>
-                <th>Цена</th>
-            </tr>
-
-            {% for el in services %}
-            {% if el.category == 'Электрика' %}
-            <tr>
-                <td>{% increment %}</td>
-                <td style="text-align: left; padding-left: 30px;">{{ el.title }}</td>
-                <td style="text-align: left; padding-left: 5%;">от {{ el.price }} руб/шт.</td>
-            </tr>
-            {% endif %}
-            {% endfor %}
-        </table>
-        {% endif %}
-
-
-        <div class="mt-5">
-            <div class="col-md-6 col-lg-7" style="float: left; height: 200px; padding-right: 45px;">
-                <h5>Познакомьтесь с командой Сатурн:</h5>
-                <div align="justify" style="font-size: 18px;">Опытная и квалифицированная бригада, которая берется за
-                    работу любой сложности с
-                    любовью и
-                    энтузиазмом. Мы - мастера своего дела, которые подойдут к решению любой сложной задачи творчески. Мы
-                    следуем определенным стандартам качества, и готовы воплотить в жизнь любое желание клиента.
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" style="float: right;"><img
-                    src="https://static.wixstatic.com/media/a60cec_cd5601caa7ef4958950ec4b1c101a157~mv2.jpg/v1/fill/w_782,h_532,al_c,q_85,enc_auto/a60cec_cd5601caa7ef4958950ec4b1c101a157~mv2.jpg"
-                    width="280px" height="200px" alt=""></div>
-
-            <div class="col-md-6 col-lg-7 mt-6"
-                 style="float: right; height: 200px; padding-right: 45px; margin-top: 65px;">
-                <h5>Работайте с профессионалами:</h5>
-                <div align="justify" style="font-size: 18px;">Наш коллектив работает на рынке ремонтных услуг уже
-                    несколько лет, и за это время
-                    мы успешно выполнили
-                    множество проектов различной сложности. Мы готовы поделиться нашим опытом и знаниями, чтобы помочь
-                    вам
-                    решить любые проблемы с вашим домом или квартирой.
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4" style="float: left; margin-top: 45px;"><img
-                    src="https://img.freepik.com/free-photo/variety-handy-tools-on-dark-background-labor-day-background-concept_1150-41808.jpg"
-                    width="320px"
-                    height="240px" alt=""></div>
-        </div>
-
-    </div>
-
-    <div class="col-xs-3 mt-5 mb-5" style="width: 20%; float: left;">
-        <div>
-            <h4>Услуги</h4>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item" style="padding-left: 0px;"><p align="justify" style="font-size: 18px;">
-                <a href="{% url 'santeh' %}">Сантехнические работы</a>
-            </p></li>
-            <li class="list-group-item" style="padding-left: 0px;"><p align="justify" style="font-size: 18px;">
-                <a href="{% url 'electric' %}">Работа с электрикой</a>
-            </p></li>
-            <li class="list-group-item" style="padding-left: 0px;"><p align="justify" style="font-size: 18px;">
-                <a href="{% url 'brick' %}">Плиточные работы</a>
-            </p></li>
-            <li class="list-group-item" style="padding-left: 0px;">
-                <p align="justify" style="font-size: 18px;">
-                    <a href="{% url 'decorative' %}">Декоративная отделка</a>
-                </p></li>
-            <li class="list-group-item" style="padding-left: 0px;">
-                <p align="justify" style="font-size: 18px;">
-                    <a href="{% url 'cosmetic' %}">Косметический ремонт</a>
-                </p>
-            </li>
-            <li class="list-group-item" style="padding-left: 0px;">
-                <p align="justify" style="font-size: 18px;">
-                    <a href="{% url 'another' %}">Другие виды услуг</a>
-                </p>
-            </li>
-            <li class="list-group-item" style="padding-left: 0px;">
-
-            </li>
-        </ul>
-    </div>
+<h4 style="margin-bottom: 25px; text-transform: uppercase; text-align: center;"> Работа с электрикой</h4>
+<div style="text-align: center;">
+    <img style="text-align: center;"
+         src="https://moslenta.ru/thumb/1200x0/filters:quality(75):no_upscale()/imgs/2021/12/18/11/5110380/2a59874283132ab12b6a49fe7a2087fb9ffa166d.jpeg"
+         alt="" class="img-flid" width="65%" height="65%">
 </div>
 
+<hr class="hr mt-5" style="color: #a3a4a5;">
+
+<h4 class="mb-3" style="text-transform: uppercase;">
+    Необходимо обновление электрики в вашем доме?
+</h4>
+<p align="justify" style="font-size: 18px;">
+    Электрические работы требуют большого внимания и профессиональных знаний, а несоблюдение норм и правил
+    безопасности может привести к серьезным последствиям. Наша команда специализируется на услугах по установке,
+    ремонту и обслуживанию электрооборудования в вашем доме или квартире. Мы гарантируем качество наших услуг и
+    выполняем работу в соответствии со всеми необходимыми нормами и правилами безопасности. Обратитесь к нам,
+    чтобы обеспечить надежную и безопасную электросистему в вашем доме.
+</p>
+
+<hr class="hr mt-3" style="color: #a3a4a5;">
+
+<h3 class="mb-3 mt-3" style="text-transform: uppercase;">
+    Наш прайс-лист:
+</h3>
+
+{% if services %}
+<table class="santehServicesTable table table-bordered table-hover table-striped" style="text-align: center;">
+    <tr style="font-size: 20px;">
+        <th>Номер</th>
+        <th>Виды работ</th>
+        <th>Цена</th>
+    </tr>
+
+    {% for el in services %}
+    {% if el.category == 'Электрика' %}
+    <tr>
+        <th scope="row">{% increment %}</th>
+        <td style="text-align: left; padding-left: 30px;">{{ el.title }}</td>
+        <td style="text-align: left; padding-left: 5%;">от {{ el.price }} руб/шт.</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
+
 {% endblock %}
+
+
 
