@@ -46,6 +46,25 @@
   margin-bottom: 110px;
   text-decoration: none;
 }
+
+    .inpMain {
+        border: none;
+        border-bottom:
+        1px solid white;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .textAreaMain {
+    border: none;
+    border-bottom:
+    1px solid white;
+    background-color: transparent;
+    box-shadow: none;
+    height: 38px;
+    resize: none;
+    }
+
 </style>
 
 <div id="intro" class="view"
@@ -258,15 +277,14 @@
                     <div>
                         <h3 class="mt-1" style="text-align: center;">Обратная связь:</h3>
                         <div>
-                            <form method="post" style="display: grid;">
-                                {% csrf_token %}
+                            <form style="display: grid;">
                                 <div class="input-group mb-1">
                                         <span class="input-group-text"
                                               style="background-color: #0080ff00;
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-user fa-sm"></i>
                                         </span>
-                                    {{ form.surname }}
+                                    <input type="text" class="form-control inpMain" id="familia" name="surname" placeholder="Фамилия">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -275,7 +293,7 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-user fa-sm"></i>
                                         </span>
-                                    {{ form.name }}
+                                    <input type="text" class="form-control inpMain" id="imya" name="name" placeholder="Имя">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -284,7 +302,7 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-user fa-sm"></i>
                                         </span>
-                                    {{ form.patronymic }}
+                                    <input type="text" class="form-control inpMain" id="patronymic" name="patronymic" placeholder="Отчество">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -293,7 +311,7 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-phone fa-sm"></i>
                                         </span>
-                                    {{ form.phone_number }}
+                                    <input type="text" class="form-control inpMain" id="phone_number" name="phone_number" placeholder="Номер телефона">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -302,14 +320,16 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-pencil fa-sm"></i>
                                         </span>
-                                    {{ form.feedback_text }}
+                                    <textarea class="form-control textAreaMain" id="full_text" name="full_text" placeholder="Что вы хотите узнать?"></textarea>
                                 </div>
                                 <hr class="hr-light mt-1">
-                                {{ form.date }}
+                                <input type="date" class="form-control inpMain" id="date" name="date">
                                 <hr class="hr-light mt-1">
-                                {{ form.time }}
+                                <input type="time" class="form-control inpMain" id="time" name="time">
                                 <hr class="hr-light mt-1">
-                                <button type="submit" class="btn btn-primary">
+                                <div id="message" style="color: red;"></div>
+                                <button class="send-feedback-button btn btn-primary" type="button"
+                                        style="margin-top: 5px;">
                                     <i class="fa-solid fa-envelope"></i> Отправить заявку
                                 </button>
                             </form>
@@ -358,4 +378,76 @@
         </div>
     </div>
 </footer>
+
+<div class="modal fade" id="successFeedbackSend" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successFeedbackSend1">Успешно!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Ваша заявка отправлена!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+    $('.send-feedback-button').on('click', function() {
+
+        var surname = $('#familia').val();
+        var name = $('#imya').val();
+        var patronymic = $('#patronymic').val();
+        var phone_number = $('#phone_number').val();
+        var full_text = $('#full_text').val();
+        var date = $('#date').val();
+        var time = $('#time').val();
+
+
+        $.ajax({
+            url: "{% url 'send_feedback' %}",
+            method: 'POST',
+            data: {
+                'surname': surname,
+                'name': name,
+                'patronymic': patronymic,
+                'phone_number': phone_number,
+                'full_text': full_text,
+                'date': date,
+                'time': time,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('#successFeedbackSend').modal('show');
+                    $('#familia').val('');
+                    $('#imya').val('');
+                    $('#patronymic').val('');
+                    $('#phone_number').val('');
+                    $('#full_text').val('');
+                    $('#date').val('');
+                    $('#time').val('');
+                    $('#message').text('');
+                } else {
+                    $('#message').text('Заполните все поля!');
+                }
+            },
+            error: function() {
+                $('#message').text('Произошла ошибка при отправке запроса!');
+            }
+        });
+    });
+});
+</script>
+
 {% endblock %}

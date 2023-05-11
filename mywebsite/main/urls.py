@@ -19,6 +19,7 @@ urlpatterns = [
     path('feedbackArchive', views.feedbackArchive, name='feedbackArchive'),
     path('change_feedback_status/', views.change_feedback_status, name='change_feedback_status'),
     path('feedback/delete/<int:feedback_id>/', views.delete_feedback, name='delete_feedback'),
+    path('services/delete/<int:services_id>/', views.delete_services, name='delete_services'),
     path('servicesDetails', views.servicesDetails, name='servicesDetails'),
     path('edit_service/', views.edit_service, name='edit_service'),
     path('add_service/', views.add_service, name='add_service'),

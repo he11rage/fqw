@@ -228,14 +228,42 @@
                         </div>
                         <div class="modal-footer">
 
-                            <button class="btn btn-primary" data-bs-target="#{{ forloop.counter }}"
+                            <button style="width:35%;" class="btn btn-primary" data-bs-target="#{{ forloop.counter }}"
                                     data-bs-toggle="modal"
                                     data-bs-dismiss="modal">Вернуться
                             </button>
-                            <button class="edit-service-button btn btn-success" data-service-id="{{ el.id }}">
+                            <button style="width:35%;" class="edit-service-button btn btn-success" data-service-id="{{ el.id }}">
                                 Изменить
                             </button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть окно
+                            <button style="width:35%;" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal"
+                                    data-bs-target="#{{ forloop.counter }}d">Удалить заявку
+                            </button>
+                            <button style="width:35%;" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть окно
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <!-- Модальное окно удаления -->
+            <div class="modal fade" id="{{ forloop.counter }}d" tabindex="-1" aria-labelledby="addUserModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successFeedbackDelete1">Удаление услуги</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Вы действительно хотите удалить услугу?
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-danger" href="{% url 'delete_services' el.id %}">
+                                Удалить
+                            </a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Закрыть
                             </button>
                         </div>
                     </div>
@@ -287,6 +315,7 @@ $(document).ready(function() {
       });
   });
 });
+
 </script>
 
 <script>
@@ -321,6 +350,7 @@ $(document).ready(function() {
         });
     });
 });
+
 </script>
 
 {% endblock %}

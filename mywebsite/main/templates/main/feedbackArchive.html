@@ -25,7 +25,7 @@
         {% for el in feedback %}
         {% if el.status == 'Не активен' %}
         <tr>
-            <td>{% increment %} </td>
+            <td>{% increment %}</td>
             <td>{{ el.surname }} {{ el.name }} {{ el.patronymic }}</td>
             <td>{{ el.phone_number }}</td>
             <td>{{ el.date }} {{ el.time }}</td>
@@ -58,9 +58,36 @@
                         </div>
                         <div class="modal-footer">
                             <button class="change-status-button btn btn-secondary" data-feedback-id="{{ el.id }}"
-                                    data-new-status="Активен">Изменить статус
+                                    data-new-status="Активен" data-bs-dismiss="modal">Изменить статус
                             </button>
-                            <a class="btn btn-danger" href="{% url 'delete_feedback' el.id %}">Удалить заявку</a>
+                            <button class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#{{ forloop.counter }}d">Удалить заявку
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Модальное окно удаления -->
+            <div class="modal fade" id="{{ forloop.counter }}d" tabindex="-1" aria-labelledby="addUserModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successFeedbackDelete1">Удаление заявки</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Вы действительно хотите удалить эту заявку?
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-danger"
+                                    href="{% url 'delete_feedback' el.id %}">
+                                Удалить
+                            </a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Закрыть
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -80,6 +107,7 @@
     </ul>
 
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -108,6 +136,7 @@
                 });
             });
         });
+
 
 </script>
 

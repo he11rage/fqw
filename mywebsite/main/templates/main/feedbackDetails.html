@@ -100,6 +100,7 @@
                     success: function(response) {
                         if (response.success) {
                             alert('Статус успешно изменен!');
+                            location.reload();
                         } else {
                             alert('Произошла ошибка: ' + response.message);
                         }

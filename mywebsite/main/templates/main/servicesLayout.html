@@ -225,6 +225,14 @@
             success: function(response) {
                 if (response.success) {
                     $('#successFeedbackSend').modal('show');
+                    $('#familia').val('');
+                    $('#imya').val('');
+                    $('#patronymic').val('');
+                    $('#phone_number').val('');
+                    $('#full_text').val('');
+                    $('#date').val('');
+                    $('#time').val('');
+                    $('#message').text('');
                 } else {
                     $('#message').text('Заполните все поля!');
                 }
@@ -235,9 +243,6 @@
         });
     });
 });
-
-
-
 </script>
 
 {% endblock %}

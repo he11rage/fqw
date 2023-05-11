@@ -134,6 +134,11 @@ def delete_feedback(request, feedback_id):
     feedback.delete()
     return redirect('feedbackArchive')
 
+def delete_services(request, services_id):
+    services = Services.objects.get(id=services_id)
+    services.delete()
+    return redirect('servicesDetails')
+
 
 def servicesDetails(request):
     orderbyList = ['category', 'title', 'price']
