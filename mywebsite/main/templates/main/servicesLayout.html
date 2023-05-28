@@ -16,6 +16,7 @@
         text-decoration: none;
         color: #000000;
         }
+
 </style>
 
 <div class="container">
@@ -106,42 +107,54 @@
         <h2 class="font-weight-bold" style="text-align: center;">
             Связаться с нами:
         </h2>
-        <div style="background: url(https://sun9-32.userapi.com/impg/SXWjHbH_nbuTn87xjzWZzFK65jjKTfZY7CtehQ/fCEFqfxcgXc.jpg?size=1025x593&quality=96&sign=ccfa312bc9a2ec0cf69823aacc2b99d8&type=album) no-repeat;
-        height: 100%; width: 100%; padding: 5px 15px 5px 400px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); border-radius: 15px; margin-top: 15px;">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-8 mt-5">
-                    <div class="form-group" style="margin-top: 5px;">
-                        <label>Фамилия:</label>
-                        <input type="text" class="form-control" id="familia" name="surname">
+        <div style="text-align: -webkit-center;">
+            <div style="background: url(https://gamerwall.pro/uploads/posts/2021-11/thumbs/1637016616_2-gamerwall-pro-p-belii-kirpich-tekstura-oboi-na-zastavku-2.jpg);
+        height: 100%; width: 65%; padding: 5px 5px 5px 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); border-radius: 15px; margin-top: 15px;">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 mt-5">
+                        <div class="form-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Фамилия:</label>-->
+                            <input type="text" class="form-control" id="familia" name="surname"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Фамилия">
+                        </div>
+                        <div class="form-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Имя:</label>-->
+                            <input type="text" class="form-control" id="imya" name="name"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Имя">
+                        </div>
+                        <div class="form-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Отчество(если имеется):</label>-->
+                            <input type="text" class="form-control" id="patronymic" name="patronymic"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Отчество (опционально)">
+                        </div>
+                        <div class="form-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Номер телефона:</label>-->
+                            <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Номер телефона">
+                        </div>
+                        <div class="form-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Что вы хотите узнать?:</label>-->
+                            <textarea class="form-control" id="full_text" name="full_text"
+                                      style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);"
+                                      placeholder="Что вы хотите узнать?"></textarea>
+                        </div>
+                        <div class="form-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Ожидаемая дата:</label>-->
+                            <input type="date" class="form-control" id="date" name="date"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Ожидаемая дата">
+                        </div>
+                        <div class="form-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Примерное время:</label>-->
+                            <input type="time" class="form-control" id="time" name="time"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Примерное время">
+                        </div>
+                        <div id="message" style="color: red;"></div>
+                        <div style="text-align-last: center;">
+                            <button class="send-feedback-button btn btn-dark" type="button" style="margin-top: 5px;">
+                                Отправить заявку
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-group" style="margin-top: 5px;">
-                        <label>Имя:</label>
-                        <input type="text" class="form-control" id="imya" name="name">
-                    </div>
-                    <div class="form-group" style="margin-top: 5px;">
-                        <label>Отчество(если имеется):</label>
-                        <input type="text" class="form-control" id="patronymic" name="patronymic">
-                    </div>
-                    <div class="form-group" style="margin-top: 5px;">
-                        <label>Номер телефона:</label>
-                        <input type="text" class="form-control" id="phone_number" name="phone_number">
-                    </div>
-                    <div class="form-group" style="margin-top: 5px;">
-                        <label>Что вы хотите узнать?:</label>
-                        <textarea class="form-control" id="full_text" name="full_text"></textarea>
-                    </div>
-                    <div class="form-group" style="margin-top: 5px;">
-                        <label>Ожидаемая дата:</label>
-                        <input type="date" class="form-control" id="date" name="date">
-                    </div>
-                    <div class="form-group" style="margin-top: 5px;">
-                        <label>Примерное время:</label>
-                        <input type="time" class="form-control" id="time" name="time">
-                    </div>
-                    <div id="message" style="color: red;"></div>
-                    <button class="send-feedback-button btn btn-primary" type="button" style="margin-top: 5px;">
-                        Отправить заявку
-                    </button>
                 </div>
             </div>
         </div>
@@ -243,6 +256,7 @@
         });
     });
 });
+
 </script>
 
 {% endblock %}

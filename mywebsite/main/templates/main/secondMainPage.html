@@ -65,6 +65,9 @@
     resize: none;
     }
 
+
+
+
 </style>
 
 <div id="intro" class="view"
@@ -284,7 +287,8 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-user fa-sm"></i>
                                         </span>
-                                    <input type="text" class="form-control inpMain" id="familia" name="surname" placeholder="Фамилия">
+                                    <input type="text" class="form-control inpMain" id="familia" name="surname"
+                                           placeholder="Фамилия">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -293,7 +297,8 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-user fa-sm"></i>
                                         </span>
-                                    <input type="text" class="form-control inpMain" id="imya" name="name" placeholder="Имя">
+                                    <input type="text" class="form-control inpMain" id="imya" name="name"
+                                           placeholder="Имя">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -302,7 +307,8 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-user fa-sm"></i>
                                         </span>
-                                    <input type="text" class="form-control inpMain" id="patronymic" name="patronymic" placeholder="Отчество">
+                                    <input type="text" class="form-control inpMain" id="patronymic" name="patronymic"
+                                           placeholder="Отчество">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -311,7 +317,8 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-phone fa-sm"></i>
                                         </span>
-                                    <input type="text" class="form-control inpMain" id="phone_number" name="phone_number" placeholder="Номер телефона">
+                                    <input type="text" class="form-control inpMain" id="phone_number"
+                                           name="phone_number" placeholder="Номер телефона">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -320,12 +327,30 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-pencil fa-sm"></i>
                                         </span>
-                                    <textarea class="form-control textAreaMain" id="full_text" name="full_text" placeholder="Что вы хотите узнать?"></textarea>
+                                    <textarea class="form-control textAreaMain" id="full_text" name="full_text"
+                                              placeholder="Что вы хотите узнать?"></textarea>
                                 </div>
                                 <hr class="hr-light mt-1">
-                                <input type="date" class="form-control inpMain" id="date" name="date">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-calendar-days fa-sm"></i>
+                                        </span>
+                                    <input type="date" class="form-control inpMain" id="date" name="date"
+                                           placeholder="Ожидаемая дата">
+                                </div>
                                 <hr class="hr-light mt-1">
-                                <input type="time" class="form-control inpMain" id="time" name="time">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-clock fa-sm"></i>
+                                        </span>
+
+                                    <input type="time" class="form-control inpMain" id="time" name="time"
+                                           placeholder="Время звонка">
+                                </div>
                                 <hr class="hr-light mt-1">
                                 <div id="message" style="color: red;"></div>
                                 <button class="send-feedback-button btn btn-primary" type="button"
@@ -448,6 +473,9 @@
         });
     });
 });
+
+
+
 </script>
 
 {% endblock %}

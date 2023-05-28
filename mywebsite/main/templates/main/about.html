@@ -323,9 +323,26 @@
                                               placeholder="Что вы хотите узнать?"></textarea>
                                 </div>
                                 <hr class="hr-light mt-1">
-                                <input type="date" class="form-control inpMain" id="date" name="date">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-calendar-days fa-sm"></i>
+                                        </span>
+                                    <input type="date" class="form-control inpMain" id="date" name="date"
+                                           placeholder="Ожидаемая дата">
+                                </div>
                                 <hr class="hr-light mt-1">
-                                <input type="time" class="form-control inpMain" id="time" name="time">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-clock fa-sm"></i>
+                                        </span>
+
+                                    <input type="time" class="form-control inpMain" id="time" name="time"
+                                           placeholder="Время звонка">
+                                </div>
                                 <hr class="hr-light mt-1">
                                 <div id="message" style="color: red;"></div>
                                 <button class="send-feedback-button btn btn-primary" type="button"

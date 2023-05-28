@@ -30,7 +30,7 @@ def secondMainPage(request):
     return render(request, 'main/secondMainPage.html')
 
 
-@login_required
+@login_required(login_url="main/login.html")
 def profile_view(request):
     return render(request, 'main/profile.html')
 
@@ -104,13 +104,13 @@ def createFeedback(request):
 
     return render(request, 'main/secondMainPage.html', data)
 
-
+@login_required(login_url="login")
 def feedbackSettings(request):
     orderbyList = ['status', 'date', 'time']
     feedback = Feedback.objects.order_by(*orderbyList)
     return render(request, 'main/feedbackDetails.html', {'feedback': feedback})
 
-
+@login_required(login_url="login")
 def feedbackArchive(request):
     orderbyList = ['status', 'date', 'time']
     feedback = Feedback.objects.order_by(*orderbyList)
@@ -139,7 +139,7 @@ def delete_services(request, services_id):
     services.delete()
     return redirect('servicesDetails')
 
-
+@login_required(login_url="login")
 def servicesDetails(request):
     orderbyList = ['category', 'title', 'price']
     selected_category = request.GET.get('category', 'all')
@@ -261,7 +261,7 @@ def send_feedback(request):
         date = request.POST.get('date')
         time = request.POST.get('time')
 
-        if surname != '' and name != '' and phone_number != '' and date != '' and time != '':
+        if surname != '' and name != '' and phone_number != '':
             try:
                 feedback = Feedback.objects.create(surname=surname, name=name, patronymic=patronymic,
                                                    phone_number=phone_number, feedback_text=full_text,
