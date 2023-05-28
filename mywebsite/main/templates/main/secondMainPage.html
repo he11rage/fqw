@@ -337,8 +337,9 @@
                                               border: var(--bs-border-width) solid #dee2e600;">
                                             <i class="fa-solid fa-calendar-days fa-sm"></i>
                                         </span>
-                                    <input type="date" class="form-control inpMain" id="date" name="date"
-                                           placeholder="Ожидаемая дата">
+                                    <input class="form-control inpMain" id="date" name="date"
+                                           placeholder="Ожидаемая дата" type="text"
+                                   onfocus="(this.type='date')">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div class="input-group mb-1">
@@ -348,8 +349,9 @@
                                             <i class="fa-solid fa-clock fa-sm"></i>
                                         </span>
 
-                                    <input type="time" class="form-control inpMain" id="time" name="time"
-                                           placeholder="Время звонка">
+                                    <input class="form-control inpMain" id="time" name="time"
+                                           placeholder="Время звонка" type="text"
+                                   onfocus="(this.type='time')">
                                 </div>
                                 <hr class="hr-light mt-1">
                                 <div id="message" style="color: red;"></div>
