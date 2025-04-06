@@ -1,0 +1,57 @@
+{% extends 'main/servicesLayout.html' %}
+
+{% block title %} Плитка {% endblock %}
+{% load my_tags %}
+
+{% block services %}
+
+<h4 style="margin-bottom: 25px; text-transform: uppercase; text-align: center;"> Плиточные работы</h4>
+
+<div style="text-align: center;">
+    <img style="text-align: center;"
+         src="https://livkerama.ru/wp-content/uploads/2018/08/1489228319_2-1-min-1024x683.jpg"
+         alt="" class="img-flid" width="65%" height="65%">
+</div>
+
+<hr class="hr mt-5" style="color: #a3a4a5;">
+
+<h4 class="mb-3" style="text-transform: uppercase;">
+    Какие плиточные работы мы можем предложить?
+</h4>
+<p align="justify" style="font-size: 18px;">
+    Мы готовы предложить широкий спектр услуг по плиточным работам: от укладки керамической плитки на пол и
+    стены до создания декоративных элементов. Наша команда профессионалов с многолетним опытом гарантирует
+    качественное выполнение работ любой сложности. Мы используем только качественные материалы и современное
+    оборудование, чтобы добиться наилучшего результата. Вы можете быть уверены, что ваша ванная комната, кухня
+    или любое другое помещение будут выглядеть стильно и аккуратно благодаря нашим услугам.
+</p>
+
+<hr class="hr mt-3" style="color: #a3a4a5;">
+
+<h3 class="mb-3 mt-3" style="text-transform: uppercase;">
+    Наш прайс-лист:
+</h3>
+
+{% if services %}
+<table class="santehServicesTable table table-bordered table-hover table-striped" style="text-align: center;">
+    <tr style="font-size: 20px;">
+        <th>Номер</th>
+        <th>Виды работ</th>
+        <th>Цена</th>
+    </tr>
+
+    {% for el in services %}
+    {% if el.category == 'Плиточные' %}
+    <tr>
+        <th scope="row">{% increment %}</th>
+        <td style="text-align: left; padding-left: 30px;">{{ el.title }}</td>
+        <td style="text-align: center;">от {{ el.price }} руб/кв.м.</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,280 @@
+{% extends 'main/secondLayout.html' %}
+
+{% load my_tags %}
+{% block content %}
+
+<style>
+    ul .servList {
+    display: block;
+    list-style: none;
+    padding: 0px;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    }
+
+    ul li a {
+        text-decoration: none;
+        color: #000000;
+        }
+
+
+
+
+
+
+
+</style>
+
+<div class="container">
+    <div class="col-xs-9 mt-5 mb-5" style="width: 100%;">
+        {% block services %}
+
+        {% endblock %}
+
+        <hr class="hr-light mt-4">
+        <h4>Познакомьтесь с командой Сатурн:</h4>
+        <div align="justify" style="font-size: 18px;">Опытная и квалифицированная бригада, которая берется за
+            работу любой сложности с
+            любовью и
+            энтузиазмом. Мы - мастера своего дела, которые подойдут к решению любой сложной задачи творчески. Мы
+            следуем определенным стандартам качества, и готовы воплотить в жизнь любое желание клиента.
+        </div>
+
+        <div style="text-align: center; margin-top: 15px;">
+            <img src="https://static.wixstatic.com/media/a60cec_cd5601caa7ef4958950ec4b1c101a157~mv2.jpg/v1/fill/w_782,h_532,al_c,q_85,enc_auto/a60cec_cd5601caa7ef4958950ec4b1c101a157~mv2.jpg"
+                 style="height: 50%; width:50%; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
+        </div>
+
+        <hr class="hr-light mt-4">
+        <h4>Работайте с профессионалами:</h4>
+        <div align="justify" style="font-size: 18px;">Наш коллектив работает на рынке ремонтных услуг уже
+            несколько лет, и за это время
+            мы успешно выполнили
+            множество проектов различной сложности. Мы готовы поделиться нашим опытом и знаниями, чтобы помочь
+            вам
+            решить любые проблемы с вашим домом или квартирой.
+        </div>
+
+        <div style="text-align: center; margin-top: 15px;">
+            <img src="https://img.freepik.com/free-photo/variety-handy-tools-on-dark-background-labor-day-background-concept_1150-41808.jpg"
+                 style="height: 50%; width:50%; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);">
+        </div>
+
+        <hr class="hr-light mt-4">
+        <div style="text-align: center;">
+            <h2 class="mb-1 font-weight-bold">
+                Почему именно мы?
+            </h2>
+        </div>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><p align="justify" style="font-size: 20px;">
+                Наша компания нацелена на предоставление своим клиентам высококачественных услуг по ремонту и отделке
+                помещений
+                любой сложности. Мы осуществляем работы любой сложности - от установки светильников и розеток до
+                капитального
+                ремонта. Мы бережно относимся к каждому заказу и гарантируем своевременное и качественное выполнение
+                работ.
+            </p></li>
+            <li class="list-group-item"><p align="justify" style="font-size: 20px;">
+                Одним из наших преимуществ является гибкая система скидок для постоянных клиентов. Мы также
+                предоставляем
+                гарантию на все выполненные работы, что дает нашим клиентам дополнительную уверенность в нашей
+                компетентности и
+                ответственности.
+
+            </p></li>
+            <li class="list-group-item"><p align="justify" style="font-size: 20px;">
+                В нашей работе мы используем только качественные материалы и современное оборудование, что позволяет нам
+                выполнять работы в срок и соответствовать самым высоким стандартам качества.
+            </p></li>
+            <li class="list-group-item">
+                <p align="justify" style="font-size: 20px;">
+
+                    Выбирая нашу компанию, вы получаете профессиональный и надежный подход к ремонту и отделке ваших
+                    помещений. Мы
+                    всегда готовы предложить нашим клиентам лучшее соотношение цены и качества.
+                </p></li>
+            <li class="list-group-item">
+                <p align="justify" style="font-size: 20px;">
+                    Наша главная цель - удовлетворить потребности наших клиентов и сделать их жизнь более комфортной и
+                    уютной. Мы
+                    стремимся к развитию и расширению нашей деятельности, внедряя новые технологии и развивая свои
+                    профессиональные
+                    навыки.
+                </p>
+            </li>
+            <li class="list-group-item">
+
+            </li>
+        </ul>
+
+        <hr class="hr-light mt-4">
+        <h2 class="font-weight-bold" style="text-align: center;">
+            Связаться с нами:
+        </h2>
+        <div style="text-align: -webkit-center;">
+            <div style="background: url(https://gamerwall.pro/uploads/posts/2021-11/thumbs/1637016616_2-gamerwall-pro-p-belii-kirpich-tekstura-oboi-na-zastavku-2.jpg);
+        height: 100%; width: 65%; padding: 5px 5px 5px 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); border-radius: 15px; margin-top: 15px;">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 mt-5">
+                        <div class="input-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Фамилия:</label>-->
+                            <input type="text" class="form-control" id="familia" name="surname"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Фамилия">
+                        </div>
+                        <div class="input-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Имя:</label>-->
+                            <input type="text" class="form-control" id="imya" name="name"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Имя">
+                        </div>
+                        <div class="input-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Отчество(если имеется):</label>-->
+                            <input type="text" class="form-control" id="patronymic" name="patronymic"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Отчество (опционально)">
+                        </div>
+                        <div class="input-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Номер телефона:</label>-->
+                            <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Номер телефона">
+                        </div>
+                        <div class="input-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <!--                        <label>Что вы хотите узнать?:</label>-->
+                            <textarea class="form-control" id="full_text" name="full_text"
+                                      style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);"
+                                      placeholder="Что вы хотите узнать?"></textarea>
+                        </div>
+                        <div class="input-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <input class="form-control" id="date" name="date"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Ожидаемая дата"
+                                   type="text"
+                                   onfocus="(this.type='date')">
+                        </div>
+                        <div class="input-group" style="margin-top: 5px; margin-bottom: 15px;">
+                            <input class="form-control" id="time" name="time"
+                                   style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" placeholder="Примерное время"
+                                   type="text"
+                                   onfocus="(this.type='time')">
+                        </div>
+                        <div id=" message" style="color: red;">
+                        </div>
+                        <div style="text-align-last: center;">
+                            <button class="send-feedback-button btn btn-dark" type="button" style="margin-top: 5px;">
+                                Отправить заявку
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="successFeedbackSend" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successFeedbackSend1">Успешный успех!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Ваша заявка отправлена!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer" style="background-color: #f5f5f5; position: relative;
+    z-index: 301;">
+    <hr class="my-5">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">О компании</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p>ООО "Сатурн" г. Екатеринбург</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Контакты</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Почта: info@saturn.ru</p>
+                <p class="mb-3 mt-0">Номер телефона: +7 (908) 951-26-67</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Адрес</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Адрес: г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+                <p class="mb-3 mt-0">Время работы: с 9:00 до 18:00 без выходных </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function() {
+    $('.send-feedback-button').on('click', function() {
+
+        var surname = $('#familia').val();
+        var name = $('#imya').val();
+        var patronymic = $('#patronymic').val();
+        var phone_number = $('#phone_number').val();
+        var full_text = $('#full_text').val();
+        var date = $('#date').val();
+        var time = $('#time').val();
+
+
+        $.ajax({
+            url: "{% url 'send_feedback' %}",
+            method: 'POST',
+            data: {
+                'surname': surname,
+                'name': name,
+                'patronymic': patronymic,
+                'phone_number': phone_number,
+                'full_text': full_text,
+                'date': date,
+                'time': time,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('#successFeedbackSend').modal('show');
+                    $('#familia').val('');
+                    $('#imya').val('');
+                    $('#patronymic').val('');
+                    $('#phone_number').val('');
+                    $('#full_text').val('');
+                    $('#date').val('');
+                    $('#time').val('');
+                    $('#message').text('');
+                } else {
+                    $('#message').text('Заполните все поля!');
+                }
+            },
+            error: function() {
+                $('#message').text('Произошла ошибка при отправке запроса!');
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+</script>
+
+{% endblock %}
+
+
+

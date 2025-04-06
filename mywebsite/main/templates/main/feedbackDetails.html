@@ -1,0 +1,116 @@
+{% extends 'main/secondLayout.html' %}
+{% load static %}
+{% load my_tags %}
+{% block title %} Заявки {% endblock %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 25px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;">
+    <table class="feedbackTable table table-hover" style="text-align: center;">
+        <h2 style="text-align: center;">Заявки:</h2>
+        <tr style="font-size: 20px;">
+            <th>Номер заявки</th>
+            <th>ФИО</th>
+            <th>Номер телефона</th>
+            <th>Ожидаемая дата звонка</th>
+            <th>Статус заявки</th>
+            <th>Действие</th>
+        </tr>
+        {% if feedback %}
+        {% for el in feedback %}
+        {% if el.status == 'Активен' %}
+        <tr>
+            <td>{% increment %}</td>
+            <td>{{ el.surname }} {{ el.name }} {{ el.patronymic }}</td>
+            <td>{{ el.phone_number }}</td>
+            <td>{{ el.date }} {{ el.time }}</td>
+            <td>{{ el.status }}</td>
+            <td>
+                <!-- Кнопка-триггер модального окна -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#{{ forloop.counter }}"
+                        style="margin-bottom: 5px; width: 150px;">
+                    Рассмотреть
+                </button>
+            </td>
+
+            <!-- Модальное окно -->
+            <div class="modal fade" id="{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Информация о заявке</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Закрыть"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul style="list-style-type: none;">
+                                <li> ФИО: {{ el.surname }} {{ el.name }} {{ el.patronymic }}</li>
+                                <li> Номер телефона: {{ el.phone_number }}</li>
+                                <li> Текст заявки: {{ el.feedback_text }}</li>
+                                <li> Ожидаемая дата звонка: {{ el.date }} {{ el.time }}</li>
+                                <li> Статус: {{ el.status }}</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="change-status-button btn btn-success" data-feedback-id="{{ el.id }}" data-new-status="Не активен">Заявка рассмотрена</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть окно</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <tr class="str">
+            <td>В данный</td>
+            <td>момент</td>
+            <td>входящих</td>
+            <td>заявок</td>
+            <td>нет</td>
+        </tr>
+        {% endif %}
+    </table>
+    <ul style="list-style-type: none;">
+        <li><a href="{% url 'feedbackArchive' %}" style="text-decoration: none;">Архив заявок</a></li>
+    </ul>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.change-status-button').on('click', function() {
+                var feedbackId = $(this).data('feedback-id');
+                var newStatus = $(this).data('new-status');
+                $.ajax({
+                    url: "{% url 'change_feedback_status' %}",
+                    method: 'POST',
+                    data: {
+                        'feedback_id': feedbackId,
+                        'new_status': newStatus,
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert('Статус успешно изменен!');
+                            location.reload();
+                        } else {
+                            alert('Произошла ошибка: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Произошла ошибка при отправке запроса!');
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

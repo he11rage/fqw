@@ -1,0 +1,56 @@
+{% extends 'main/servicesLayout.html' %}
+
+{% block title %} Декоративная отделка {% endblock %}
+{% load my_tags %}
+
+{% block services %}
+
+
+<h4 style="margin-bottom: 25px; text-transform: uppercase; text-align: center;"> Декоративная отделка</h4>
+
+<div style="text-align: center;">
+    <img style="text-align: center;"
+         src="https://f5.mirkvartir.me/journal/custom/ff4b1a7c-692b-4ea7-b75b-b6e46d371baa.jpg"
+         alt="" class="img-flid" width="65%" height="65%">
+</div>
+
+<hr class="hr mt-5" style="color: #a3a4a5;">
+
+<h4 class="mb-3" style="text-transform: uppercase;">
+    Как украсить свой дом? У нас есть ответ – услуги по декоративным работам!
+</h4>
+<p align="justify" style="font-size: 18px;">
+    Наши специалисты могут создать уникальный и элегантный дизайн для вашего дома или офиса. Мы предлагаем
+    широкий спектр услуг: от создания мозаик и фресок до украшения стен и потолков различными элементами декора.
+    Наша команда всегда готова воплотить ваши идеи в жизнь и создать атмосферу уюта и комфорта в вашем доме!
+</p>
+
+<hr class="hr mt-3" style="color: #a3a4a5;">
+
+<h3 class="mb-3 mt-3" style="text-transform: uppercase;">
+    Наш прайс-лист:
+</h3>
+
+{% if services %}
+<table class="santehServicesTable table table-bordered table-hover table-striped" style="text-align: center;">
+    <tr style="font-size: 20px;">
+        <th>Номер</th>
+        <th>Виды работ</th>
+        <th>Цена</th>
+    </tr>
+
+    {% for el in services %}
+    {% if el.category == 'Декоративные' %}
+    <tr>
+        <th scope="row">{% increment %}</th>
+        <td style="text-align: left; padding-left: 30px;">{{ el.title }}</td>
+        <td style="text-align: center;">от {{ el.price }} руб/кв.м</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
+
+

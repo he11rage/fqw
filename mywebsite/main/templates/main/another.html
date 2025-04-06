@@ -1,0 +1,58 @@
+{% extends 'main/servicesLayout.html' %}
+
+{% block title %} Прочее {% endblock %}
+{% load my_tags %}
+
+{% block services %}
+
+<h4 style="margin-bottom: 25px; text-transform: uppercase; text-align: center;"> Другие виды услуг</h4>
+
+<div style="text-align: center;">
+    <img style="text-align: center;"
+         src="https://xn----7sbpb5aezbfk.xn--p1ai/attachments/Image/32505_156068449613811.jpg"
+         alt="" class="img-flid" width="65%" height="65%">
+</div>
+
+<hr class="hr mt-5" style="color: #a3a4a5;">
+
+<h4 class="mb-3" style="text-transform: uppercase;">
+    Что еще мы можем для вас сделать?
+</h4>
+<p align="justify" style="font-size: 18px;">
+    Наша компания предоставляет широкий спектр услуг, которые помогут вам решить любые проблемы, связанные с
+    ремонтом и обслуживанием квартиры или дома. Мы осуществляем услуги по мелкому и крупному ремонту, включая
+    установку и замену окон, дверей, потолков, а также проводим работы по изготовлению мебели и ее установке.
+    Кроме того, мы осуществляем электромонтажные работы и установку сантехники, а также можем оказать помощь в
+    подборе и доставке строительных материалов. Не нашли нужную услугу? Обращайтесь к нам, и мы обязательно
+    найдем решение вашей проблемы!
+</p>
+
+<hr class="hr mt-3" style="color: #a3a4a5;">
+
+<h3 class="mb-3 mt-3" style="text-transform: uppercase;">
+    Наш прайс-лист:
+</h3>
+
+{% if services %}
+<table class="santehServicesTable table table-bordered table-hover table-striped" style="text-align: center;">
+    <tr style="font-size: 20px;">
+        <th>Номер</th>
+        <th>Виды работ</th>
+        <th>Цена</th>
+    </tr>
+
+    {% for el in services %}
+    {% if el.category == 'Прочее' %}
+    <tr>
+        <th scope="row">{% increment %}</th>
+        <td style="text-align: left; padding-left: 30px;">{{ el.title }}</td>
+        <td style="text-align: center;">от {{ el.price }} руб/шт.</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
+
+
+{% endblock %}
+

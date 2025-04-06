@@ -1,0 +1,57 @@
+{% extends 'main/servicesLayout.html' %}
+
+{% block title %} Электрика {% endblock %}
+{% load my_tags %}
+
+{% block services %}
+
+<h4 style="margin-bottom: 25px; text-transform: uppercase; text-align: center;"> Работа с электрикой</h4>
+<div style="text-align: center;">
+    <img style="text-align: center;"
+         src="https://moslenta.ru/thumb/1200x0/filters:quality(75):no_upscale()/imgs/2021/12/18/11/5110380/2a59874283132ab12b6a49fe7a2087fb9ffa166d.jpeg"
+         alt="" class="img-flid" width="65%" height="65%">
+</div>
+
+<hr class="hr mt-5" style="color: #a3a4a5;">
+
+<h4 class="mb-3" style="text-transform: uppercase;">
+    Необходимо обновление электрики в вашем доме?
+</h4>
+<p align="justify" style="font-size: 18px;">
+    Электрические работы требуют большого внимания и профессиональных знаний, а несоблюдение норм и правил
+    безопасности может привести к серьезным последствиям. Наша команда специализируется на услугах по установке,
+    ремонту и обслуживанию электрооборудования в вашем доме или квартире. Мы гарантируем качество наших услуг и
+    выполняем работу в соответствии со всеми необходимыми нормами и правилами безопасности. Обратитесь к нам,
+    чтобы обеспечить надежную и безопасную электросистему в вашем доме.
+</p>
+
+<hr class="hr mt-3" style="color: #a3a4a5;">
+
+<h3 class="mb-3 mt-3" style="text-transform: uppercase;">
+    Наш прайс-лист:
+</h3>
+
+{% if services %}
+<table class="santehServicesTable table table-bordered table-hover table-striped" style="text-align: center;">
+    <tr style="font-size: 20px;">
+        <th>Номер</th>
+        <th>Виды работ</th>
+        <th>Цена</th>
+    </tr>
+
+    {% for el in services %}
+    {% if el.category == 'Электрика' %}
+    <tr>
+        <th scope="row">{% increment %}</th>
+        <td style="text-align: left; padding-left: 30px;">{{ el.title }}</td>
+        <td style="text-align: left; padding-left: 5%;">от {{ el.price }} руб/шт.</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
+
+
+

@@ -1,0 +1,204 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title> {% block title %} {% endblock %} </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/secondMain.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4b7a799c80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48
+    }
+    </style>
+</head>
+
+<body style="height: 100%;">
+<header style="height: 100%;">
+    <nav class="navbar navbar-expand-lg scrolling-navbar shadow">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home'%}">
+                <img
+                        src="https://www.svgrepo.com/show/120980/saturn.svg"
+                        alt="" class="img-flid" height="60px" width="60px">
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Переключатель навигации">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 smooth-scroll">
+                    <li class="nav-item">
+                        <a href="{% url 'home'%}" class="nav-link waves-effect waves-light"
+                           aria-current="page">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'services'%}" class="nav-link waves-effect waves-light">Услуги</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'about'%}" class="nav-link waves-effect waves-light">О компании</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'contacts' %}" class="nav-link waves-effect waves-light">Контакты</a>
+                    </li>
+                </ul>
+
+                {% if user.is_staff %}
+                <ul class="navbar-nav mb-2 mb-lg-0 smooth-scroll">
+                    <li style="margin-top: 10px; color: var(--bs-nav-link-color);">
+                        {{ user.username }}
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            {% if user.is_superuser %}
+                            <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addUserModal">Добавить
+                                сотрудника</a>
+                            </li>
+                            {% endif %}
+                            <li><a href=" {% url 'feedbackSettings'%}" class="dropdown-item">Заявки</a>
+                            </li>
+                            <li><a href="{% url 'servicesDetails'%}" class="dropdown-item">
+                                Редактор услуг</a>
+                            </li>
+                            <li><a href="{% url 'logout' %}?next=/" class="dropdown-item">Выйти</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Добавление нового пользователя</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Логин:</label>
+                    <input type="text" class="form-control" id="login" name="login" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Имя:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Фамилия:</label>
+                    <input type="text" class="form-control" id="surname" name="surname" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Пароль:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="form-check" style="margin-top: 5px;">
+                    <input type="checkbox" class="form-check-input" id="is_staff" name="is_staff" value="True">
+                    <label class="form-check-label">Сотрудник</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="add-user-button btn btn-success" type="button">
+                    Добавить
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Закрыть окно
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+</body>
+<script>
+    $(".dropdown-toggle").mouseenter(function () {
+        $(this).addClass('animate__animated animate__pulse');
+    });
+
+    $(".dropdown-toggle").mouseleave(function () {
+        $(this).removeClass('animate__animated animate__pulse');
+    });
+
+
+</script>
+
+<script>
+    $(document).ready(function() {
+    $('.add-user-button').on('click', function() {
+        var login = $('#login').val();
+        var name = $('#name').val();
+        var surname = $('#surname').val();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var is_staff = $('#is_staff').val();
+
+        $.ajax({
+            url: "{% url 'add_user' %}",
+            method: 'POST',
+            data: {
+                'login': login,
+                'name': name,
+                'surname': surname,
+                'email': email,
+                'password': password,
+                'is_staff': is_staff,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Пользователь успешно добавлен!');
+                    location.reload();
+                } else {
+                    alert('Произошла ошибка: ' + response.message);
+                }
+            },
+            error: function() {
+                alert('Произошла ошибка при отправке запроса!');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+    const servicesLink = document.querySelector('.dropdown-toggle[href="{% url 'services'%}"]');
+    servicesLink.addEventListener('click', function (event) {
+        event.preventDefault(); // останавливаем дальнейшую обработку события по умолчанию (открытие меню)
+        window.location.href = this.href; // переходим на указанную страницу
+    });
+</script>
+
+</html>

@@ -1,0 +1,26 @@
+{% extends 'main/secondLayout.html' %}
+{% load static %}
+
+{% block title %} Личный кабинет {% endblock %}
+
+{% block content %}
+<h1 style="text-align: Center;">Личный кабинет</h1>
+<div class="container">
+    <p>Логин: {{ user.get_username }} </p>
+    <p>Имя: {{ user.get_full_name }} </p>
+
+    <p>Дата регистрации: </p>
+
+    {% if user.is_staff %}
+    <button class="btn btn-primary btn-block create-account" type="submit"
+            onclick="location.href='{% url 'feedbackSettings' %}?next=/profile'">Просмотр заявок
+    </button>
+    <button class="btn btn-primary btn-block create-account" type="submit"
+            onclick="location.href='{% url 'servicesDetails' %}?next=/profile'">Просмотр Услуг
+    </button>
+    {% endif %}
+    <button class="btn btn-primary btn-block create-account" type="submit"
+            onclick="location.href='{% url 'logout' %}?next=/profile'">Выйти
+    </button>
+</div>
+{% endblock %}

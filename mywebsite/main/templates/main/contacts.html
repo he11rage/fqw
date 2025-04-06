@@ -1,0 +1,203 @@
+{% extends 'main/secondLayout.html' %}
+
+{% block title %} Контакты {% endblock %}
+
+{% block content %}
+
+<div class="container usercontent">
+    <h1 style="font-weight: 800;
+    font-size: 72px;
+    opacity: .5;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 0;
+    text-transform: uppercase;">Контакты</h1>
+    <p class="elem-description-text-title-section" style="text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 26px;">Звоните, пишите и приезжайте в наш офис — мы всегда вам рады!</p>
+
+    <div id="contacts" class="container">
+        <div class="row" style="box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); border-radius: 15px;">
+            <div class="col-12" style="padding: 25px;">
+                <div class="elem-contacts row ">
+                    <div class="elem-contacts-text col-12 col-lg-7 col-xl-6 col-xxl-5">
+                        <p class="elem-contacts-heading" style="text-align: center; font-size: 25px;">Главный офис</p>
+                        <ul style="list-style-type: none; padding-left: 0px;">
+                            <li><p><i class="fa-solid fa-location-dot fa-xl"
+                                      style="size: 100px; color: #000000; opacity: .5; margin-right: 10px;"></i>
+                                г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+                            </li>
+                            <li><p><i class="fa-solid fa-phone fa-xl"
+                                      style="size: 100px; color: #000000; opacity: .5; margin-right: 10px;"></i><a> +7
+                                (908) 951-26-67</a></p>
+                            </li>
+                            <li><p><i class="fa-solid fa-clock fa-xl"
+                                      style="size: 100px; color: #000000; opacity: .5; margin-right: 10px;"></i>с 9:00
+                                до
+                                18:00 (офис), до 21:00 (замер) без выходных
+                            </p>
+                            </li>
+                            <li><p><i class="fa-solid fa-envelope fa-xl"
+                                      style="size: 100px; color: #000000; opacity: .5; margin-right: 10px;"></i>
+                                info@saturn.ru</p>
+                            </li>
+                            <li style="text-align: -webkit-center; padding-top: 50px;">
+                                <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#sendFeedbackContacts">
+                                    Отправить заявку
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="elem-contacts-map col-12 col-lg-5 col-xl-6 col-xxl-7">
+                        <iframe src="https://yandex.ru/map-widget/v1/-/CCUbMGDKkD" frameborder="0"
+                                allowfullscreen="true" width="100%" height="424px" style="display: block;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sendFeedbackContacts" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Заполните форму заявки</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Фамилия:</label>
+                    <input type="text" class="form-control" id="familia" name="surname">
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Имя:</label>
+                    <input type="text" class="form-control" id="imya" name="name">
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Отчество(если имеется):</label>
+                    <input type="text" class="form-control" id="patronymic" name="patronymic">
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Номер телефона:</label>
+                    <input type="text" class="form-control" id="phone_number" name="phone_number">
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Что вы хотите узнать?:</label>
+                    <textarea class="form-control" id="full_text" name="full_text"></textarea>
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Ожидаемая дата:</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
+                <div class="form-group" style="margin-top: 5px;">
+                    <label>Примерное время:</label>
+                    <input type="time" class="form-control" id="time" name="time">
+                </div>
+                <div id="message"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="send-feedback-button btn btn-success" type="button">
+                    Отправить
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successFeedbackSend" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successFeedbackSend1">Успешный успех!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Ваша заявка отправлена!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer" style="background-color: #f5f5f5; position: relative;
+    z-index: 301;">
+    <hr class="my-5">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">О компании</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p>ООО "Сатурн" г. Екатеринбург</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Контакты</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Почта: info@saturn.ru</p>
+                <p class="mb-3 mt-0">Номер телефона: +7 (908) 951-26-67</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Адрес</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Адрес: г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+                <p class="mb-3 mt-0">Время работы: с 9:00 до 18:00 без выходных </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function() {
+    $('.send-feedback-button').on('click', function() {
+
+        var surname = $('#familia').val();
+        var name = $('#imya').val();
+        var patronymic = $('#patronymic').val();
+        var phone_number = $('#phone_number').val();
+        var full_text = $('#full_text').val();
+        var date = $('#date').val();
+        var time = $('#time').val();
+
+
+        $.ajax({
+            url: "{% url 'send_feedback' %}",
+            method: 'POST',
+            data: {
+                'surname': surname,
+                'name': name,
+                'patronymic': patronymic,
+                'phone_number': phone_number,
+                'full_text': full_text,
+                'date': date,
+                'time': time,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('#sendFeedbackContacts').modal('hide'); // закрыть текущее модальное окно
+                    $('#successFeedbackSend').modal('show'); // открыть новое модальное окно
+                } else {
+                    $('#message').text('Произошла ошибка: ' + response.message);
+                }
+            },
+            error: function() {
+                $('#message').text('Произошла ошибка при отправке запроса!');
+            }
+        });
+    });
+});
+</script>
+
+{% endblock %}

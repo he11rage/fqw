@@ -1,0 +1,58 @@
+{% extends 'main/servicesLayout.html' %}
+
+{% block title %} Сантехника {% endblock %}
+{% load my_tags %}
+
+{% block services %}
+
+<h4 style="margin-bottom: 25px; text-transform: uppercase; text-align: center;"> Сантехнические работы</h4>
+<div style="text-align: center;">
+    <img
+         src="https://santehnikekaterinburg.ru/wp-content/uploads/2021/01/santehnik-24.jpg"
+         alt="" class="img-flid" width="65%" height="65%">
+</div>
+
+
+<hr class="hr mt-5" style="color: #a3a4a5;">
+
+<h4 class="mb-3" style="text-transform: uppercase;">
+    Нужен сантехнический ремонт? Мы поможем!
+</h4>
+<p align="justify" style="font-size: 18px;">
+    Если у вас возникли проблемы с сантехникой в доме, то наша команда экспертов готова предоставить вам
+    качественные услуги по ремонту и установке сантехники. Мы обеспечиваем полный спектр услуг, включая
+    установку и замену смесителей, труб, раковин, унитазов и другой сантехники. Наши специалисты имеют большой
+    опыт работы в этой области и гарантируют быстрое и качественное выполнение работ. С нами вы можете быть
+    уверены, что ваша сантехника будет функционировать исправно и безопасно. Свяжитесь с нами сегодня и получите
+    профессиональную помощь по сантехническому ремонту!
+</p>
+
+<hr class="hr mt-3" style="color: #a3a4a5;">
+
+<h4 class="mb-3 mt-3" style="text-transform: uppercase;">
+    Наш прайс-лист:
+</h4>
+
+{% if services %}
+<table class="santehServicesTable table table-bordered table-hover table-striped" style="text-align: center;">
+    <tr style="font-size: 20px;">
+        <th>Номер</th>
+        <th>Виды работ</th>
+        <th>Цена</th>
+    </tr>
+
+    {% for el in services %}
+    {% if el.category == 'Сантехника' %}
+    <tr>
+        <th scope="row">{% increment %}</th>
+        <td style="text-align: left; padding-left: 30px;">{{ el.title }}</td>
+        <td style="text-align: left; padding-left: 10%;">от {{ el.price }} руб/шт.</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
+
+

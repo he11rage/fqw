@@ -1,0 +1,499 @@
+{% extends 'main/secondLayout.html' %}
+
+{% block title %} О компании {% endblock %}
+
+{% block content %}
+
+<style>
+    #slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#slideshow img.active {
+  opacity: 1;
+}
+
+    .inpMain {
+        border: none;
+        border-bottom:
+        1px solid white;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .textAreaMain {
+    border: none;
+    border-bottom:
+    1px solid white;
+    background-color: transparent;
+    box-shadow: none;
+    height: 38px;
+    resize: none;
+    }
+
+</style>
+
+<div style="background: url(https://yumacom.ru/upload/iblock/8ed/uscf2p2hp4ei4z59perizn0cuycsje3c/a99985c4_b41b_11e9_8678_2c59e542b4d7_8b269be8_bb9a_11ea_9bba_2c59e542b4d7.jpeg); height: 100%; padding: 25px 96px 96px">
+    <div class="row d-flex justify-content-center mb-5 mt-5">
+        <h2 class="font-weight-bold" style="text-align: center;">
+            О компании
+        </h2>
+        <div class="col-md-8 mt-5">
+            <p align="justify" style="font-size: 20px;">
+                Компания "Сатурн" - это команда профессионалов в сфере мелкого ремонта квартир, частных домов, офисов и
+                других помещений.
+                Мы предоставляем качественные услуги на рынке ремонтных работ уже более 10 лет.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5" style="text-align: center;">
+    <h2 class="mb-5 font-weight-bold">
+        Почему именно мы?
+    </h2>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><p align="justify" style="font-size: 20px;">
+            Наша компания нацелена на предоставление своим клиентам высококачественных услуг по ремонту и отделке
+            помещений
+            любой сложности. Мы осуществляем работы любой сложности - от установки светильников и розеток до
+            капитального
+            ремонта. Мы бережно относимся к каждому заказу и гарантируем своевременное и качественное выполнение работ.
+        </p></li>
+        <li class="list-group-item"><p align="justify" style="font-size: 20px;">
+            Одним из наших преимуществ является гибкая система скидок для постоянных клиентов. Мы также предоставляем
+            гарантию на все выполненные работы, что дает нашим клиентам дополнительную уверенность в нашей
+            компетентности и
+            ответственности.
+
+        </p></li>
+        <li class="list-group-item"><p align="justify" style="font-size: 20px;">
+            В нашей работе мы используем только качественные материалы и современное оборудование, что позволяет нам
+            выполнять работы в срок и соответствовать самым высоким стандартам качества.
+        </p></li>
+        <li class="list-group-item">
+            <p align="justify" style="font-size: 20px;">
+
+                Выбирая нашу компанию, вы получаете профессиональный и надежный подход к ремонту и отделке ваших
+                помещений. Мы
+                всегда готовы предложить нашим клиентам лучшее соотношение цены и качества.
+            </p></li>
+        <li class="list-group-item">
+            <p align="justify" style="font-size: 20px;">
+                Наша главная цель - удовлетворить потребности наших клиентов и сделать их жизнь более комфортной и
+                уютной. Мы
+                стремимся к развитию и расширению нашей деятельности, внедряя новые технологии и развивая свои
+                профессиональные
+                навыки.
+            </p>
+        </li>
+        <li class="list-group-item">
+
+        </li>
+    </ul>
+
+    <section id="examples" class="text-center">
+        <h2 class="mb-5 font-weight-bold">
+            Преимущества работы с нами
+        </h2>
+        <div class="row" style="place-content: center;">
+            <div class="col-md-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px;">
+                <div
+                        style="
+                        background: url(static/main/img/engineer-working-svgrepo-com.svg) -20px 30px no-repeat;
+                        background-size: 150px 120px;
+                        padding-left: 125px;
+                        padding-right: 26px;
+                        padding-top: 20px;">
+                    <div style="font-size: 30px;" align="justify">
+                        Профессионализм
+                    </div>
+                    <div class="mb-3" style="font-size: 18px;" align="justify">
+                        Компания имеет многолетний опыт в сфере мелкого ремонта квартир, частных домов и других
+                        помещений.
+                        Наши специалисты знают все тонкости и особенности работы и готовы решать любые задачи.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px;">
+                <div
+                        style="
+                        background: url(static/main/img/quality-diamond-svgrepo-com.svg) -20px 30px no-repeat;
+                        background-size: 150px 80px;
+                        padding-left: 125px;
+                        padding-right: 26px;
+                        padding-top: 20px;">
+                    <div style="font-size: 30px;" align="justify">
+                        Качество
+                    </div>
+                    <div class="mb-3" style="font-size: 18px;" align="justify">
+                        Все работы выполняются на высоком уровне качества, используя только проверенные и надежные
+                        материалы. Мы стремимся к тому, чтобы каждый клиент был доволен результатом нашей работы.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px;">
+                <div
+                        style="
+                        background: url(static/main/img/dialog-svgrepo-com.svg) -20px 30px no-repeat;
+                        background-size: 150px 80px;
+                        padding-left: 125px;
+                        padding-right: 26px;
+                        padding-top: 20px;">
+                    <div style="font-size: 30px;" align="justify">
+                        Индивидуальный подход
+                    </div>
+                    <div class="mb-3" style="font-size: 18px;" align="justify">
+                        Мы понимаем, что каждый клиент имеет свои уникальные потребности и требования. Поэтому мы
+                        предлагаем индивидуальный подход к каждому заказчику и готовы учитывать все его пожелания.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px;">
+                <div
+                        style="
+                        background: url(static/main/img/clock-svgrepo-com.svg) -20px 30px no-repeat;
+                        background-size: 150px 80px;
+                        padding-left: 125px;
+                        padding-right: 26px;
+                        padding-top: 20px;">
+                    <div style="font-size: 30px;" align="justify">
+                        Скорость
+                    </div>
+                    <div class="mb-3" style="font-size: 18px;" align="justify">
+                        На все наши работы предоставляется гарантия качества. Если в течение определенного времени после
+                        завершения работы что-то пошло не так, мы бесплатно устраним все недочеты.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px;">
+                <div
+                        style="
+                        background: url(static/main/img/success-check-win-done-mark-good-svgrepo-com.svg) -20px 30px no-repeat;
+                        background-size: 150px 80px;
+                        padding-left: 125px;
+                        padding-right: 26px;
+                        padding-top: 20px;">
+                    <div style="font-size: 30px;" align="justify">
+                        Доступность
+                    </div>
+                    <div class="mb-3" style="font-size: 18px;" align="justify">
+                        Мы предлагаем конкурентные цены на все виды работ. При этом, мы не экономим на качестве
+                        материалов и работы, так как верим, что только качественный результат может привести к
+                        долгосрочным отношениям с клиентами.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px;">
+                <div
+                        style="
+                        background: url(static/main/img/help-desk-log-svgrepo-com.svg) -20px 30px no-repeat;
+                        background-size: 150px 80px;
+                        padding-left: 125px;
+                        padding-right: 26px;
+                        padding-top: 20px;">
+                    <div style="font-size: 30px;" align="justify">
+                        Поддержка
+                    </div>
+                    <div class="mb-3" style="font-size: 18px;" align="justify">
+                        Компания имеет многолетний опыт в сфере мелкого ремонта квартир, частных домов и других
+                        помещений.
+                        Наши специалисты знают все тонкости и особенности работы и готовы решать любые задачи.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="hr-light">
+
+    <div class="mt-3 mb-3" style="height: 550px; text-align: -webkit-center;">
+        <h2>Примеры наших работ: </h2>
+        <div class="mb-3 mt-3" id="slideshow" style="height: 100%; width: 100%; ">
+            <img class="active" src="static/main/img/rem_1.jpg"
+                 style="height: 100%; width: 100%; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px; object-fit: cover;">
+            <img src="static/main/img/rem_2.jpg"
+                 style="height: 100%; width: 100%; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px; object-fit: cover;">
+            <img src="static/main/img/rem_3.jpg"
+                 style="height: 100%; width: 100%; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px; object-fit: cover;">
+            <img src="static/main/img/rem_4.jpg"
+                 style="height: 100%; width: 100%; box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); margin: 5px; border-radius: 25px; object-fit: cover;">
+        </div>
+        <button id="prev" style="border-color: transparent; background-color: transparent;"><span
+                class="material-symbols-outlined">arrow_back_ios</span></button>
+        <button id="next" style="border-color: transparent; background-color: transparent;"><span
+                class="material-symbols-outlined">arrow_forward_ios</span></button>
+    </div>
+
+    <p align="justify" style="font-size: 20px; margin-top: 125px;">
+        Наши специалисты всегда готовы проконсультировать вас по любым вопросам, связанным с нашей работой.
+        Вы можете
+        обратиться к нам по телефону, электронной почте или через форму обратной связи ниже.
+        Мы стремимся предоставить нашим клиентам максимальный комфорт и удобство, поэтому мы гарантируем быстрый ответ
+        на любую вашу заявку.
+    </p>
+
+    <hr class="hr-light">
+    <section id="contact">
+        <h2 class="mb-5 font-weight-bold text-center">Контакты</h2>
+        <div class="row">
+            <div class="col-lg-5 col-md-12">
+                <div class="p-1" style="text-align: -webkit-left;">
+                    <div class="md-form form-sm">
+                        <i class="fa-solid fa-location-dot fa-sm" style="font-size: 20px;"> Адрес: </i>
+                        <p style="font-size: 18px;"> г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+                        <hr class="hr-light">
+                    </div>
+                    <div class="md-form form-sm">
+                        <i class="fa-solid fa-phone fa-sm" style="font-size: 20px;"> Телефон: </i>
+                        <p style="font-size: 18px;"> +7 (908) 951-26-67</p>
+                        <hr class="hr-light">
+                    </div>
+                    <div class="md-form form-sm">
+                        <i class="fa-solid fa-calendar-days" style="font-size: 20px;"> Режим работы: </i>
+                        <p style="font-size: 18px;"> с 9:00 до 18:00 (офис), до 21:00 (замер) без выходных </p>
+                        <hr class="hr-light">
+                    </div>
+                    <div class="md-form form-sm" style="font-size: 20px;">
+                        <i class="fa-solid fa-envelope"> Почта: </i>
+                        <p style="font-size: 18px;"> info@saturn.ru</p>
+                        <hr class="hr-light">
+                    </div>
+                    <div>
+                        <h3 class="mt-1" style="text-align: center;">Обратная связь:</h3>
+                        <div>
+                            <form style="display: grid;">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-user fa-sm"></i>
+                                        </span>
+                                    <input type="text" class="form-control inpMain" id="familia" name="surname"
+                                           placeholder="Фамилия">
+                                </div>
+                                <hr class="hr-light mt-1">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-user fa-sm"></i>
+                                        </span>
+                                    <input type="text" class="form-control inpMain" id="imya" name="name"
+                                           placeholder="Имя">
+                                </div>
+                                <hr class="hr-light mt-1">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-user fa-sm"></i>
+                                        </span>
+                                    <input type="text" class="form-control inpMain" id="patronymic" name="patronymic"
+                                           placeholder="Отчество">
+                                </div>
+                                <hr class="hr-light mt-1">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-phone fa-sm"></i>
+                                        </span>
+                                    <input type="text" class="form-control inpMain" id="phone_number"
+                                           name="phone_number" placeholder="Номер телефона">
+                                </div>
+                                <hr class="hr-light mt-1">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-pencil fa-sm"></i>
+                                        </span>
+                                    <textarea class="form-control textAreaMain" id="full_text" name="full_text"
+                                              placeholder="Что вы хотите узнать?"></textarea>
+                                </div>
+                                <hr class="hr-light mt-1">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-calendar-days fa-sm"></i>
+                                        </span>
+                                    <input type="date" class="form-control inpMain" id="date" name="date"
+                                           placeholder="Ожидаемая дата">
+                                </div>
+                                <hr class="hr-light mt-1">
+                                <div class="input-group mb-1">
+                                        <span class="input-group-text"
+                                              style="background-color: #0080ff00;
+                                              border: var(--bs-border-width) solid #dee2e600;">
+                                            <i class="fa-solid fa-clock fa-sm"></i>
+                                        </span>
+
+                                    <input type="time" class="form-control inpMain" id="time" name="time"
+                                           placeholder="Время звонка">
+                                </div>
+                                <hr class="hr-light mt-1">
+                                <div id="message" style="color: red;"></div>
+                                <button class="send-feedback-button btn btn-primary" type="button"
+                                        style="margin-top: 5px;">
+                                    <i class="fa-solid fa-envelope"></i> Отправить заявку
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12">
+
+                <div style="position:relative;overflow:hidden;">
+                    <a href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps"
+                       style="color:#eee;font-size:12px;position:absolute;top:0px;">Екатеринбург</a>
+                    <a href="https://yandex.ru/maps/54/yekaterinburg/house/ulitsa_8_marta_49/YkkYcAdlSUABQFtsfXRzdX5lZg==/?ll=60.605117%2C56.824538&utm_medium=mapframe&utm_source=maps&z=18.15"
+                       style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица 8 Марта, 49 —
+                        Яндекс Карты</a>
+                    <iframe src="https://yandex.ru/map-widget/v1/-/CCUbMGDKkD" width="760" height="850"
+                            frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer" style="background-color: #f5f5f5; position: relative;
+    z-index: 301;">
+    <hr class="my-5">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">О компании</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p>ООО "Сатурн" г. Екатеринбург</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Контакты</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Почта: info@saturn.ru</p>
+                <p class="mb-3 mt-0">Номер телефона: +7 (908) 951-26-67</p>
+            </div>
+            <div class="col">
+                <h6 class="text-uppercase font-weight-bold">Адрес</h6>
+                <hr class="deep-purple accent-2 mb-2 mt-0 d-inline-block mx-auto" style="width: 120px;">
+                <p class="mb-3 mt-0">Адрес: г. Екатеринбург, ул. 8 марта, 49, офис 110</p>
+                <p class="mb-3 mt-0">Время работы: с 9:00 до 18:00 без выходных </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="modal fade" id="successFeedbackSend" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successFeedbackSend1">Успешно!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Ваша заявка отправлена!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+var images = document.querySelectorAll('#slideshow img');
+var index = 0;
+
+function nextImage() {
+  images[index].classList.remove('active');
+  index++;
+  if (index >= images.length) {
+    index = 0;
+  }
+  images[index].classList.add('active');
+}
+
+function prevImage() {
+  images[index].classList.remove('active');
+  index--;
+  if (index < 0) {
+    index = images.length - 1;
+  }
+  images[index].classList.add('active');
+}
+
+document.getElementById('prev').addEventListener('click', prevImage);
+document.getElementById('next').addEventListener('click', nextImage);
+
+
+
+</script>
+
+<script>
+    $(document).ready(function() {
+    $('.send-feedback-button').on('click', function() {
+
+        var surname = $('#familia').val();
+        var name = $('#imya').val();
+        var patronymic = $('#patronymic').val();
+        var phone_number = $('#phone_number').val();
+        var full_text = $('#full_text').val();
+        var date = $('#date').val();
+        var time = $('#time').val();
+
+
+        $.ajax({
+            url: "{% url 'send_feedback' %}",
+            method: 'POST',
+            data: {
+                'surname': surname,
+                'name': name,
+                'patronymic': patronymic,
+                'phone_number': phone_number,
+                'full_text': full_text,
+                'date': date,
+                'time': time,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('#successFeedbackSend').modal('show');
+                    $('#familia').val('');
+                    $('#imya').val('');
+                    $('#patronymic').val('');
+                    $('#phone_number').val('');
+                    $('#full_text').val('');
+                    $('#date').val('');
+                    $('#time').val('');
+                    $('#message').text('');
+                } else {
+                    $('#message').text('Заполните все поля!');
+                }
+            },
+            error: function() {
+                $('#message').text('Произошла ошибка при отправке запроса!');
+            }
+        });
+    });
+});
+
+</script>
+
+{% endblock %}
